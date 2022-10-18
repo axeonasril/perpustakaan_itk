@@ -24,7 +24,6 @@ class _ExploreState extends State<Explore> {
               fontWeight: FontWeight.w800,
             ),
           )),
-          
     );
   }
 }
