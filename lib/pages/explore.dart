@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class Explore extends StatefulWidget {
   const Explore({Key key}) : super(key: key);
 
@@ -24,6 +25,18 @@ class _ExploreState extends State<Explore> {
               fontWeight: FontWeight.w800,
             ),
           )),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              hintText: 'Cari Buku atau Kategori',
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

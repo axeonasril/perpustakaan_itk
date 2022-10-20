@@ -17,7 +17,10 @@ class _RekomendasiState extends State<Rekomendasi> {
         children: [
           Text(
             'REKOMENDASI',
-            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
+            style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 15,
+                color: Color(0xff222149)),
           ),
           SizedBox(
             height: 15,
