@@ -30,8 +30,8 @@ dependencies:
   flutter_feather_icons: ^2.0.0+1
   google_fonts: ^3.0.1
   javascript: ^0.0.2
+  mobile_scanner: ^2.0.0
   persistent_bottom_nav_bar: ^5.0.2
-  qrscan: ^0.3.3
 
 dev_dependencies:
   flutter_test:

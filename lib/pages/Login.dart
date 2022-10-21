@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -98,7 +99,12 @@ class Login extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       )),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => TabDecider()));
+                  },
                   child: Text(
                     'Masuk',
                     style: GoogleFonts.openSans(

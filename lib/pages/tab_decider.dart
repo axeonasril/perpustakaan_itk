@@ -4,7 +4,7 @@ import 'package:perpustakaan_itk/pages/Home.dart';
 import 'package:perpustakaan_itk/pages/buku_saya.dart';
 import 'package:perpustakaan_itk/pages/explore.dart';
 import 'package:perpustakaan_itk/pages/profile.dart';
-import 'package:perpustakaan_itk/pages/unggah.dart';
+import 'package:perpustakaan_itk/pages/scan.dart';
 
 class TabDecider extends StatefulWidget {
   const TabDecider({Key key}) : super(key: key);
@@ -27,7 +27,7 @@ class _TabDeciderState extends State<TabDecider> {
               children: [
                 Home(),
                 Explore(),
-                Unggah(),
+                Scan(),
                 BukuSaya(),
                 Profile(),
               ],
@@ -102,12 +102,13 @@ class _TabDeciderState extends State<TabDecider> {
                   child: Column(
                     children: [
                       Icon(
-                        FeatherIcons.plusSquare,
+                        Icons.qr_code_scanner_outlined,
+                        size: 35,
                         color: currentPage == 2
                             ? Color(0xff001AFF)
                             : Color(0xffB4B4B4),
                       ),
-                      Text('Unggah',
+                      Text('Scan',
                           style: TextStyle(
                               color: currentPage == 2
                                   ? Color(0xff001AFF)

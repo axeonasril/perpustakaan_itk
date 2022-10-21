@@ -21,11 +21,19 @@ class _HomeState extends State<Home> {
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
         actions: [
-          GestureDetector(onTap: () {}, child: Icon(Icons.bookmark_outline)),
+          GestureDetector(
+              onTap: () {},
+              child: Icon(
+                Icons.bookmark_outline,
+                color: Colors.white,
+              )),
           SizedBox(
             width: 5,
           ),
-          Icon(Icons.notifications_outlined),
+          Icon(
+            Icons.notifications_outlined,
+            color: Colors.white,
+          ),
           SizedBox(
             width: 20,
           )

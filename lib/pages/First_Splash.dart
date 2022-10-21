@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/pages/Login.dart';
 
-class FirstSplash extends StatelessWidget {
+class FirstSplash extends StatefulWidget {
+  const FirstSplash({Key key}) : super(key: key);
+
+  @override
+  State<FirstSplash> createState() => _FirstSplashState();
+}
+
+class _FirstSplashState extends State<FirstSplash> {
+  void doSplash() async {
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext context) => Login()));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    doSplash();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

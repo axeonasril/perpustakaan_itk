@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:perpustakaan_itk/widgets/eksplor_ebook.dart';
+import 'package:perpustakaan_itk/widgets/eksplor_kategori.dart';
 
 class Explore extends StatefulWidget {
   const Explore({Key key}) : super(key: key);
@@ -25,17 +26,36 @@ class _ExploreState extends State<Explore> {
               fontWeight: FontWeight.w800,
             ),
           )),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              hintText: 'Cari Buku atau Kategori',
+      body: ListView(
+        children: [
+          Container(
+            height: 45,
+            padding: EdgeInsets.only(left: 0),
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+                color: Color(0xffEEEEEE),
+                borderRadius: BorderRadius.circular(5)),
+            child: TextField(
+              cursorColor: Colors.blue,
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.search,
+                  size: 20,
+                ),
+                border: InputBorder.none,
+                hintText: 'Cari Buku atau Kategori',
+              ),
             ),
           ),
-        ),
+          SizedBox(
+            height: 31,
+          ),
+          EksplorKategori(),
+          SizedBox(
+            height: 30,
+          ),
+          EksplorEbook()
+        ],
       ),
     );
   }
