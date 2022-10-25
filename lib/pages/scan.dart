@@ -18,8 +18,9 @@ class _ScanState extends State<Scan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
-          'Scan',
+          'SCAN',
           style: GoogleFonts.openSans(
             color: Color(0xff001AFF),
             fontSize: 20,

@@ -32,16 +32,6 @@ class _BukuSayaState extends State<BukuSaya>
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
         leading: BackButton(),
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: Icon(
-                  Icons.more_horiz,
-                )),
-          ),
-        ],
         centerTitle: true,
         elevation: 0,
         backgroundColor: Color(0xffFFFFFF),
@@ -65,11 +55,11 @@ class _BukuSayaState extends State<BukuSaya>
           ],
         ),
       ),
+      
       body: new TabBarView(
         controller: controller,
         children: <Widget>[
           BukuPinjaman(),
-          
           RiwayatPinjaman(),
         ],
       ),

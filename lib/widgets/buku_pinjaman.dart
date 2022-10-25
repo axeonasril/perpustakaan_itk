@@ -10,41 +10,82 @@ class BukuPinjaman extends StatefulWidget {
 class _BukuPinjamanState extends State<BukuPinjaman> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 25),
-        children: [
-          Row(
+    return ListView(
+      children: [
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+          padding: EdgeInsets.all(0),
+          decoration: BoxDecoration(
+            border: Border.all(color: Color(0xffE4E4E4), width: 1),
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          ),
+          child: Column(
             children: [
-              Image.asset(
-                'assets/buku4.png',
-                height: 100,
-                width: 100,
-              ),
-
-              Column(
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'MENGENAL RASULULLAH LEBIH DEKAT',
-                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/buku4.png',
+                          height: 65,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'MENGENAL RASULULLAH LEBIH DEKAT',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w800, fontSize: 12),
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Text(
+                              'Oleh Imam At-Tirmidzi',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 12,
+                                  color: Color(0xff696969)),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'Dipinjam 01 April 2022 - Tersisa 2 hari',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 12,
+                                  color: Color(0xff696969)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    'Oleh Imam At-Tirmidzi',
-                    style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12,
-                        color: Color(0xff696969)),
+                  IconButton(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    alignment: Alignment.center,
+                    onPressed: () {
+                      
+                    },
+                    icon: Icon(Icons.more_vert),
+                    iconSize: 30,
+                    color: Color(0xffC4C4C4),
                   ),
                 ],
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
