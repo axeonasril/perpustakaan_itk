@@ -26,7 +26,7 @@ class _ExploreState extends State<Explore> {
               fontWeight: FontWeight.w800,
             ),
           )),
-      body: ListView(
+      body: Column(
         children: [
           Container(
             height: 45,
@@ -54,7 +54,7 @@ class _ExploreState extends State<Explore> {
           SizedBox(
             height: 30,
           ),
-          EksplorEbook()
+          Expanded(child: EksplorEbook())
         ],
       ),
     );

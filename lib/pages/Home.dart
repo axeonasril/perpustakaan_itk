@@ -62,15 +62,19 @@ class _HomeState extends State<Home> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: ListView(
+              physics: BouncingScrollPhysics(),
               children: [
                 Carousel(),
                 SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
                 Rekomendasi(),
+                SizedBox(
+                  height: 5,
+                ),
                 TerakhirDibaca(),
                 SizedBox(
-                  height: 27,
+                  height: 25,
                 ),
                 BukuTerbaru(),
               ],

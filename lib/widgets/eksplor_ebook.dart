@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:perpustakaan_itk/pages/detail_buku.dart';
 
 class EksplorEbook extends StatefulWidget {
   const EksplorEbook({Key key}) : super(key: key);
@@ -8,6 +9,63 @@ class EksplorEbook extends StatefulWidget {
 }
 
 class _EksplorEbookState extends State<EksplorEbook> {
+  var dataBuku = [
+    {
+      'image': 'assets/buku1.png',
+      'judul': 'Teknologi',
+      'jumlah': '10',
+      'oleh': 'Andi Wahyu',
+    },
+    {
+      'image': 'assets/buku2.png',
+      'judul': 'Sosial',
+      'jumlah': '10',
+      'oleh': 'Andi Sulthan',
+    },
+    {
+      'image': 'assets/buku3.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Asril',
+    },
+    {
+      'image': 'assets/buku4.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Wandi',
+    },
+    {
+      'image': 'assets/buku5.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Ezra',
+    },
+    {
+      'image': 'assets/buku3.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Rafly',
+    },
+    {
+      'image': 'assets/buku3.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Wahyu',
+    },
+    {
+      'image': 'assets/buku3.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Andi',
+    },
+    {
+      'image': 'assets/buku3.png',
+      'judul': 'Agama',
+      'jumlah': '10',
+      'oleh': 'Daffa',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,18 +79,28 @@ class _EksplorEbookState extends State<EksplorEbook> {
           SizedBox(
             height: 30,
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 15),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, childAspectRatio: 1 / 1.2),
+                itemCount: dataBuku.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => DetailBuku(
+                                    detailBuku: dataBuku[index],
+                                  )));
+                    },
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/buku1.png',
+                          dataBuku[index]['image'],
                           height: 100,
                           width: 100,
                         ),
@@ -40,12 +108,12 @@ class _EksplorEbookState extends State<EksplorEbook> {
                           height: 7,
                         ),
                         Text(
-                          'Teknologi',
+                          dataBuku[index]['judul'],
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 15),
                         ),
                         Text(
-                          '10 Buku',
+                          dataBuku[index]['jumlah'] + ' Buku',
                           style: TextStyle(
                               fontWeight: FontWeight.normal,
                               fontSize: 12,
@@ -53,225 +121,9 @@ class _EksplorEbookState extends State<EksplorEbook> {
                         ),
                       ],
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/sosial.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Sosial',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/agama.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Agama',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/buku1.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Teknologi',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/sosial.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Sosial',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/agama.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Agama',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/buku1.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Teknologi',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/sosial.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Sosial',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/agama.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'Agama',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15),
-                        ),
-                        Text(
-                          '10 Buku',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
+                  );
+                },
+              ),
             ),
           ),
         ],

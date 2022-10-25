@@ -59,7 +59,7 @@ class _TerakhirDibacaState extends State<TerakhirDibaca> {
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),
                       SizedBox(
-                        height: 4,
+                        height: 3,
                       ),
                       Text(
                         'Oleh Imam At-Tirmidzi',

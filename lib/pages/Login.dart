@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  const Login({Key key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool obsecure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,24 +60,32 @@ class Login extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
-              obscureText: true,
+              obscureText: obsecure,
               decoration: InputDecoration(
-                fillColor: Color.fromARGB(255, 255, 255, 255),
-                filled: true,
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide.none),
-                hintText: 'Password',
-                contentPadding: const EdgeInsets.symmetric(
-                    vertical: 16.0, horizontal: 16.0),
-                hintStyle: GoogleFonts.openSans(
-                  color: Color(0xff939393),
-                ),
-                suffixIcon: Icon(
-                  Icons.visibility_off_outlined,
-                  color: Color(0xff939393),
-                ),
-              ),
+                  fillColor: Color.fromARGB(255, 255, 255, 255),
+                  filled: true,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide.none),
+                  hintText: 'Password',
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 16.0),
+                  hintStyle: GoogleFonts.openSans(
+                    color: Color(0xff939393),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obsecure = !obsecure;
+                      });
+                    },
+                    icon: Icon(
+                      obsecure == false
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                      color: Color(0xff939393),
+                    ),
+                  )),
             ),
             SizedBox(height: 10.75),
             Container(

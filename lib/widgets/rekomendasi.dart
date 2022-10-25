@@ -11,7 +11,7 @@ class _RekomendasiState extends State<Rekomendasi> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 220,
+      height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,6 +48,9 @@ class _RekomendasiState extends State<Rekomendasi> {
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),
+                      SizedBox(
+                        height: 3,
+                      ),
                       Text(
                         'Oleh Andi Wahyu',
                         style: TextStyle(
@@ -76,6 +79,9 @@ class _RekomendasiState extends State<Rekomendasi> {
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),
+                      SizedBox(
+                        height: 3,
+                      ),
                       Text(
                         'Oleh Andi Wahyu',
                         style: TextStyle(
@@ -103,6 +109,9 @@ class _RekomendasiState extends State<Rekomendasi> {
                         'ENSIKLOPEDIA Ma',
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
+                      ),
+                      SizedBox(
+                        height: 3,
                       ),
                       Text(
                         'Oleh Aminuddin',

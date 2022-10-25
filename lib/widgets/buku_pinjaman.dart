@@ -10,9 +10,11 @@ class BukuPinjaman extends StatefulWidget {
 class _BukuPinjamanState extends State<BukuPinjaman> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Container(
           margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
           padding: EdgeInsets.all(0),
           decoration: BoxDecoration(
@@ -73,9 +75,7 @@ class _BukuPinjamanState extends State<BukuPinjaman> {
                   IconButton(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     alignment: Alignment.center,
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                     icon: Icon(Icons.more_vert),
                     iconSize: 30,
                     color: Color(0xffC4C4C4),
@@ -84,8 +84,8 @@ class _BukuPinjamanState extends State<BukuPinjaman> {
               ),
             ],
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

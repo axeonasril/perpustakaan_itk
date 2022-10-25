@@ -11,7 +11,7 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,6 +45,9 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),
+                      SizedBox(
+                        height: 3,
+                      ),
                       Text(
                         'Oleh Andi Wahyu',
                         style: TextStyle(
@@ -73,6 +76,9 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),
+                      SizedBox(
+                        height: 3,
+                      ),
                       Text(
                         'Oleh Andi Wahyu',
                         style: TextStyle(
@@ -100,6 +106,9 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
                         'ENSIKLOPEDIA Ma',
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
+                      ),
+                      SizedBox(
+                        height: 3,
                       ),
                       Text(
                         'Oleh Aminuddin',

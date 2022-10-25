@@ -13,7 +13,7 @@ class Carousel extends StatefulWidget {
 class _CarouselState extends State<Carousel> {
   int currentPage = 0;
 
-  List dataCarousel = [1, 2, 3, 4, 5];
+  List dataCarousel = [1, 2, 3];
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,13 @@ class _CarouselState extends State<Carousel> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-              height: 140.0,
+              enlargeCenterPage: true,
+              viewportFraction: 0.9,
+              aspectRatio: 5.0,
+              initialPage: 3,
+              height: 150.0,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 5),
               onPageChanged: (int index, _) {
                 setState(() {
                   currentPage = index;
@@ -31,7 +37,9 @@ class _CarouselState extends State<Carousel> {
             return Builder(
               builder: (BuildContext context) {
                 return Stack(children: [
-                  Image.asset('assets/carousel1.png'),
+                  Image.asset(
+                    'assets/carousel1.png',
+                  ),
                   Positioned(
                     top: 0,
                     bottom: 0,
@@ -42,7 +50,7 @@ class _CarouselState extends State<Carousel> {
                         filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.grey.shade200.withOpacity(0.2)),
+                              color: Colors.grey.withOpacity(0.2)),
                         ),
                       ),
                     ),
@@ -98,7 +106,6 @@ class _CarouselState extends State<Carousel> {
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.symmetric(horizontal: 2),
-                  height: 7,
                   width: 7,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
