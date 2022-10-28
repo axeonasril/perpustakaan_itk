@@ -31,7 +31,6 @@ class _TabDeciderState extends State<TabDecider> {
                 Scan(),
                 BukuSaya(),
                 Profile(),
-                
               ],
             ),
           ),
@@ -85,7 +84,7 @@ class _TabDeciderState extends State<TabDecider> {
                             : Color(0xffB4B4B4),
                       ),
                       Text(
-                        'Explore',
+                        'Eksplor',
                         style: TextStyle(
                           color: currentPage == 1
                               ? Color(0xff001AFF)
@@ -152,7 +151,7 @@ class _TabDeciderState extends State<TabDecider> {
                           color: currentPage == 4
                               ? Color(0xff001AFF)
                               : Color(0xffB4B4B4)),
-                      Text('Profile',
+                      Text('Profil',
                           style: TextStyle(
                               color: currentPage == 4
                                   ? Color(0xff001AFF)

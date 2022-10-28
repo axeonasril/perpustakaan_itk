@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/pages/Login.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key key}) : super(key: key);
@@ -85,10 +86,10 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               Text(
-                'Abdullah M H',
+                'Abdullah Muntasyirul Haq',
                 style: GoogleFonts.openSans(
                   color: Color(0xff222149),
                   fontSize: 20,
@@ -96,6 +97,148 @@ class _ProfileState extends State<Profile> {
                 ),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Material(
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    leading: Icon(
+                      Icons.label_important_rounded,
+                      size: 30,
+                      color: Color(0xff1C4CFF),
+                    ),
+                    title: const Text(
+                      'Program Studi',
+                      style: TextStyle(
+                        color: Color(
+                          0xff696969,
+                        ),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    subtitle: const Text(
+                      'Informatika',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Material(
+                  elevation: 0,
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    leading: Icon(
+                      Icons.layers_rounded,
+                      size: 30,
+                      color: Color(0xff1C4CFF),
+                    ),
+                    title: const Text(
+                      'Jurusan',
+                      style: TextStyle(
+                        color: Color(
+                          0xff696969,
+                        ),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    subtitle: const Text(
+                      'Sains, Teknologi Pangan, dan Kemaritiman',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Material(
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    leading: Icon(
+                      Icons.mail_outline_rounded,
+                      size: 30,
+                      color: Color(0xff1C4CFF),
+                    ),
+                    title: const Text(
+                      'Email',
+                      style: TextStyle(
+                        color: Color(
+                          0xff696969,
+                        ),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    isThreeLine: true,
+                    subtitle: const Text(
+                      '11181001@student.itk.ac.id',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 120,
+              ),
+              GestureDetector(
+                onTap: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Keluar'),
+                    content: const Text('Apakah anda yakin untuk keluar?'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                        child: const Text('Tidak'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) => Login()));
+                        },
+                        child: const Text('Ya'),
+                      ),
+                    ],
+                  ),
+                ),
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 50),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15,
+                    ),
+                    decoration: BoxDecoration(
+                        color: Color(0xff6759ff),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'Keluar',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ]),
           ),
         ],

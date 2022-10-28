@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Color(0xff6759FF),
       body: Padding(
-        padding: const EdgeInsets.only(top: 120, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 170, left: 30, right: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -26,8 +26,7 @@ class _LoginState extends State<Login> {
               width: 100,
             ),
             SizedBox(
-              height: 15,
-              width: 500,
+              height: 25,
             ),
             Text(
               'Selamat Datang!',
@@ -45,7 +44,7 @@ class _LoginState extends State<Login> {
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 14),
+            SizedBox(height: 25),
             TextFormField(
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -99,7 +98,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            SizedBox(height: 11),
+            SizedBox(height: 35),
             Center(
               child: Container(
                 decoration: BoxDecoration(

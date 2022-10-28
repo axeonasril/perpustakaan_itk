@@ -90,7 +90,19 @@ class _DetailBukuState extends State<DetailBuku> {
                   Text(
                     'Oleh ' + widget.detailBuku['oleh'],
                     style: TextStyle(
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 15,
+                      color: Color(0xff696969),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Jurusan ' + widget.detailBuku['jurusan'],
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Color(0xff696969),
                     ),
@@ -107,40 +119,27 @@ class _DetailBukuState extends State<DetailBuku> {
                         Column(
                           children: [
                             Text(
-                              'Rating',
+                              'Kategori',
                               style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 16,
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('4.5')
+                            Text('E-book')
                           ],
                         ),
                         Column(
                           children: [
                             Text(
-                              'Halaman',
+                              'Total Pinjam',
                               style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 16,
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('500')
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Bahasa',
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16,
-                                color: Color(0xff939393),
-                              ),
-                            ),
-                            Text('Indonesia')
+                            Text('100+')
                           ],
                         ),
                         Column(
@@ -153,7 +152,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('2019')
+                            Text('2018')
                           ],
                         ),
                       ],
@@ -241,14 +240,15 @@ class _DetailBukuState extends State<DetailBuku> {
                       ],
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15),
+                  GestureDetector(
+                    onTap: () {},
                     child: Row(
                       children: [
                         Expanded(
                           child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20),
-                            padding: EdgeInsets.symmetric(vertical: 14),
+                            margin: EdgeInsets.symmetric(horizontal: 50),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 15),
                             decoration: BoxDecoration(
                                 color: Color(0xff6759ff),
                                 borderRadius: BorderRadius.circular(10)),
@@ -263,9 +263,8 @@ class _DetailBukuState extends State<DetailBuku> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 16),
                         Container(
-                            margin: EdgeInsets.only(right: 20),
+                            margin: EdgeInsets.only(right: 45),
                             padding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 15),
                             decoration: BoxDecoration(
