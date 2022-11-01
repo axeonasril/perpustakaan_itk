@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/pages/First_Splash.dart';
+import 'package:perpustakaan_itk/pages/first_splash.dart';
 import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/pages/home.dart';
 import 'package:perpustakaan_itk/pages/login.dart';

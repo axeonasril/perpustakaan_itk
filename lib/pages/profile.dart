@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:perpustakaan_itk/pages/Login.dart';
+import 'package:perpustakaan_itk/pages/login.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key key}) : super(key: key);

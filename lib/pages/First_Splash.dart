@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:perpustakaan_itk/pages/Login.dart';
+import 'package:perpustakaan_itk/pages/login.dart';
 
 class FirstSplash extends StatefulWidget {
   const FirstSplash({Key key}) : super(key: key);
