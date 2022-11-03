@@ -14,7 +14,7 @@ class _BukuPinjamanState extends State<BukuPinjaman> {
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
-      itemCount: 10,
+      itemCount: 3,
       itemBuilder: (context, index) {
         return Container(
           margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),

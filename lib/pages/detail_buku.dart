@@ -73,7 +73,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 25,
                   ),
                   Text(
                     widget.detailBuku['judul'],
@@ -200,18 +200,18 @@ class _DetailBukuState extends State<DetailBuku> {
                           height: 10,
                         ),
                         SizedBox(
-                          height: 150,
+                          height: 140,
                           child: ListView.builder(
                             physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
-                            itemCount: 5,
+                            itemCount: 4,
                             itemBuilder: (context, index) {
                               return Container(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      'assets/buku1.png',
+                                      'assets/buku8.png',
                                       height: 100,
                                       width: 100,
                                     ),
@@ -219,7 +219,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                       height: 7,
                                     ),
                                     Text(
-                                      'Teknologi',
+                                      'Geografi',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 15),
@@ -264,7 +264,7 @@ class _DetailBukuState extends State<DetailBuku> {
                           ),
                         ),
                         Container(
-                            margin: EdgeInsets.only(right: 45),
+                            margin: EdgeInsets.only(right: 50),
                             padding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 15),
                             decoration: BoxDecoration(

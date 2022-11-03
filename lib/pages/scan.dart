@@ -67,7 +67,7 @@ class _ScanState extends State<Scan> {
             right: 40,
             child: Center(
               child:
-                  Icon(FeatherIcons.maximize, size: 200, color: Colors.white),
+                  Icon(FeatherIcons.maximize, size: 150, color: Colors.white, ),
             ),
           ),
         ],
