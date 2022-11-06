@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
 import 'package:perpustakaan_itk/widgets/buku_pinjaman.dart';
 import 'package:perpustakaan_itk/widgets/riwayat_pinjaman.dart';
 
@@ -31,7 +32,15 @@ class _BukuSayaState extends State<BukuSaya>
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
-        leading: BackButton(),
+        leading: BackButton(
+          onPressed: () {
+            CurrentPage.goHome();
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => TabDecider()));
+          },
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Color(0xffFFFFFF),

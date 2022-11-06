@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/pages/login.dart';
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstSplash extends StatefulWidget {
   const FirstSplash({Key key}) : super(key: key);
@@ -12,8 +14,15 @@ class FirstSplash extends StatefulWidget {
 class _FirstSplashState extends State<FirstSplash> {
   void doSplash() async {
     await Future.delayed(Duration(seconds: 3));
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (BuildContext context) => Login()));
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('token') != null) {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => TabDecider()));
+    } else {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => Login()));
+    }
   }
 
   @override

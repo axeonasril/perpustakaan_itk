@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/controller/auth.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
 class Login extends StatefulWidget {
@@ -10,8 +11,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool loading = false;
+
   bool obsecure = true;
 
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +51,7 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(height: 25),
             TextFormField(
+              controller: email,
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 255, 255, 255),
                   filled: true,
@@ -59,6 +65,7 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: password,
               obscureText: obsecure,
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -115,14 +122,17 @@ class _LoginState extends State<Login> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       )),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => TabDecider()));
+                  onPressed: () async {
+                    setState(() {
+                      loading = true;
+                    });
+                    await login(email.text, password.text, context);
+                    setState(() {
+                      loading = false;
+                    });
                   },
                   child: Text(
-                    'Masuk',
+                    loading == true ? 'Menunggu' : 'Masuk',
                     style: GoogleFonts.openSans(
                       color: Color(0xffFFFFFF),
                       fontSize: 12.5,

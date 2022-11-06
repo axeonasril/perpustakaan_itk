@@ -1,8 +1,14 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/controller/auth.dart';
+import 'package:perpustakaan_itk/core/models/user.dart';
 import 'package:perpustakaan_itk/pages/login.dart';
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key key}) : super(key: key);
@@ -12,12 +18,36 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  User user;
+
+  void getDataUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String tempUser = prefs.getString('user');
+    var data = json.decode(tempUser);
+    setState(() {
+      user = User.fromJson(data);
+    });
+  }
+
+  @override
+  void initState() {
+    getDataUser();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
         leading: BackButton(
+          onPressed: () {
+            CurrentPage.goHome();
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => TabDecider()));
+          },
           color: Colors.white,
         ),
         centerTitle: true,
@@ -62,24 +92,8 @@ class _ProfileState extends State<Profile> {
                       fit: StackFit.expand,
                       children: [
                         CircleAvatar(
-                            backgroundImage: AssetImage('assets/buku1.png')),
-                        Positioned(
-                          right: 0,
-                          bottom: 0,
-                          child: SizedBox(
-                            height: 35,
-                            width: 35,
-                            child: FlatButton(
-                              padding: EdgeInsets.all(7),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                  side: BorderSide(color: Colors.white10)),
-                              color: Color(0xffF5F6F9),
-                              onPressed: () {},
-                              child: Image.asset('assets/camera.png'),
-                            ),
-                          ),
-                        )
+                            backgroundImage: NetworkImage(
+                                'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg')),
                       ],
                     ),
                   )
@@ -89,7 +103,7 @@ class _ProfileState extends State<Profile> {
                 height: 15,
               ),
               Text(
-                'Abdullah Muntasyirul Haq',
+                user == null ? '' : user.name.toString(),
                 style: GoogleFonts.openSans(
                   color: Color(0xff222149),
                   fontSize: 20,
@@ -121,8 +135,8 @@ class _ProfileState extends State<Profile> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    subtitle: const Text(
-                      'Informatika',
+                    subtitle: Text(
+                      user == null ? '' : user.prodi.toString(),
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -152,8 +166,8 @@ class _ProfileState extends State<Profile> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    subtitle: const Text(
-                      'Sains, Teknologi Pangan, dan Kemaritiman',
+                    subtitle: Text(
+                      user == null ? '' : user.jurusan.toString(),
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -183,8 +197,8 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     isThreeLine: true,
-                    subtitle: const Text(
-                      '11181001@student.itk.ac.id',
+                    subtitle: Text(
+                      user == null ? '' : user.email.toString(),
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -196,28 +210,29 @@ class _ProfileState extends State<Profile> {
                 height: 120,
               ),
               GestureDetector(
-                onTap: () => showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Keluar'),
-                    content: const Text('Apakah anda yakin untuk keluar?'),
-                    actions: <Widget>[
-                      TextButton(
-                        onPressed: () => Navigator.pop(context, 'Cancel'),
-                        child: const Text('Tidak'),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) => Login()));
-                        },
-                        child: const Text('Ya'),
-                      ),
-                    ],
-                  ),
-                ),
+                onTap: () {
+                  showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                            title: const Text('Keluar'),
+                            content:
+                                const Text('Apakah anda yakin untuk keluar?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(context, 'Cancel'),
+                                child: const Text('Tidak'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  CurrentPage.goHome();
+                                  logout(context);
+                                },
+                                child: const Text('Ya'),
+                              ),
+                            ],
+                          ));
+                },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 50),
                   child: Container(

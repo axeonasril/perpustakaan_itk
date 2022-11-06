@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:perpustakaan_itk/core/controller/checkin.dart';
 
 class Scan extends StatefulWidget {
   const Scan({Key key}) : super(key: key);
@@ -31,28 +32,33 @@ class _ScanState extends State<Scan> {
       ),
       body: Stack(
         children: [
-          // MobileScanner(
-          //   allowDuplicates: false,
-          //   controller: MobileScannerController(
-          //       facing: CameraFacing.back, torchEnabled: false),
-          //   onDetect: (barcode, args) {
-          //     if (barcode.rawValue == null) {
-          //       debugPrint('Failed to scan Barcode');
-          //     } else {
-          //       setState(() {
-          //         code = barcode.rawValue;
-          //         showDialog(
-          //             context: context,
-          //             builder: (BuildContext context) {
-          //               return AlertDialog(
-          //                 title: Text('Hasil QR Code'),
-          //                 content: Text(code),
-          //               );
-          //             });
-          //       });
-          //     }
-          //   },
-          // ),
+          MobileScanner(
+            allowDuplicates: false,
+            controller: MobileScannerController(
+                facing: CameraFacing.back, torchEnabled: false),
+            onDetect: (barcode, args) {
+              if (barcode.rawValue == null) {
+                debugPrint('Failed to scan Barcode');
+              } else {
+                setState(() {
+                  code = barcode.rawValue;
+                });
+                if (code ==
+                    'http://lumen-perpustakaanitk.test/checkin-pengunjung') {
+                  checkin(context);
+                } else {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Gagal'),
+                          content: Text('QR Tidak Valid'),
+                        );
+                      });
+                }
+              }
+            },
+          ),
           Positioned(
             top: 0,
             bottom: 0,
@@ -66,8 +72,11 @@ class _ScanState extends State<Scan> {
             left: 40,
             right: 40,
             child: Center(
-              child:
-                  Icon(FeatherIcons.maximize, size: 150, color: Colors.white, ),
+              child: Icon(
+                FeatherIcons.maximize,
+                size: 150,
+                color: Colors.white,
+              ),
             ),
           ),
         ],

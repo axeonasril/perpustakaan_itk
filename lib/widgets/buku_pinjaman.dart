@@ -74,19 +74,6 @@ class _BukuPinjamanState extends State<BukuPinjaman> {
                       ],
                     ),
                   ),
-                  IconButton(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    alignment: Alignment.center,
-                    onPressed: () {
-                      DropdownButton(
-                        items: [],
-                        onChanged: (value) {},
-                      );
-                    },
-                    icon: Icon(Icons.more_vert),
-                    iconSize: 30,
-                    color: Color(0xffC4C4C4),
-                  ),
                 ],
               ),
             ],

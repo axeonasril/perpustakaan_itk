@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
               onTap: () {},

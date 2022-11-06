@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/models/kategori.dart';
 
 class DetailBuku extends StatefulWidget {
-  final detailBuku;
+  final Kategori detailBuku;
   const DetailBuku({Key key, this.detailBuku}) : super(key: key);
 
   @override
@@ -66,8 +67,9 @@ class _DetailBukuState extends State<DetailBuku> {
                 children: [
                   Column(
                     children: [
-                      Image.asset(
-                        widget.detailBuku['image'],
+                      Image.network(
+                        widget.detailBuku.berkas ??
+                            'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
                         width: 180,
                       ),
                     ],
@@ -76,7 +78,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 25,
                   ),
                   Text(
-                    widget.detailBuku['judul'],
+                    widget.detailBuku.namaKategori,
                     style: GoogleFonts.openSans(
                       color: Color(0xff222149),
                       fontSize: 20,
@@ -88,7 +90,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 10,
                   ),
                   Text(
-                    'Oleh ' + widget.detailBuku['oleh'],
+                    'Oleh Asril ',
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 15,
@@ -100,7 +102,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 10,
                   ),
                   Text(
-                    'Jurusan ' + widget.detailBuku['jurusan'],
+                    'Jurusan ',
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
