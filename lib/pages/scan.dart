@@ -44,7 +44,7 @@ class _ScanState extends State<Scan> {
                   code = barcode.rawValue;
                 });
                 if (code ==
-                    'http://lumen-perpustakaanitk.test/checkin-pengunjung') {
+                    'http://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api/checkin-pengunjung') {
                   checkin(context);
                 } else {
                   showDialog(
