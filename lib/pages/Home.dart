@@ -23,7 +23,12 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                // Navigator.pushReplacement(
+                // context,
+                // MaterialPageRoute(
+                //     builder: (BuildContext context) => TabDecider()));
+              },
               child: Icon(
                 Icons.bookmark_outline,
                 color: Colors.white,

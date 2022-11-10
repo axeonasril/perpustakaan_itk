@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BookingRuangan extends StatefulWidget {
-  const BookingRuangan({Key key}) : super(key: key);
+
+class KonfirmasiBooking extends StatefulWidget {
+  const KonfirmasiBooking({Key key}) : super(key: key);
 
   @override
-  State<BookingRuangan> createState() => _BookingRuanganState();
+  State<KonfirmasiBooking> createState() => _KonfirmasiBookingState();
 }
 
-class _BookingRuanganState extends State<BookingRuangan> {
+class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

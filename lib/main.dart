@@ -14,7 +14,7 @@ class PerpustakaanItk extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.grey),
       debugShowCheckedModeBanner: false,
-      home: FirstSplash(),
+      home: TabDecider(),
     );
   }
 }
