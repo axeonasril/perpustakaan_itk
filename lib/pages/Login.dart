@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/auth.dart';
-import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -51,6 +50,7 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(height: 25),
             TextFormField(
+              textInputAction: TextInputAction.go,
               controller: email,
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -64,7 +64,17 @@ class _LoginState extends State<Login> {
                   hintStyle: GoogleFonts.openSans(color: Color(0xff939393))),
             ),
             SizedBox(height: 10),
-            TextFormField(
+            TextField(
+              onSubmitted: (value) async {
+                setState(() {
+                  loading = true;
+                });
+                await login(email.text, password.text, context);
+                setState(() {
+                  loading = false;
+                });
+              },
+              textInputAction: TextInputAction.go,
               controller: password,
               obscureText: obsecure,
               decoration: InputDecoration(
@@ -92,18 +102,6 @@ class _LoginState extends State<Login> {
                       color: Color(0xff939393),
                     ),
                   )),
-            ),
-            SizedBox(height: 10.75),
-            Container(
-              alignment: Alignment(1, 0.5),
-              child: Text(
-                'Lupa Password?',
-                style: GoogleFonts.openSans(
-                  color: Color(0xffFFFFFF),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                ),
-              ),
             ),
             SizedBox(height: 35),
             Center(
