@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:perpustakaan_itk/core/controller/book.dart';
+import 'package:perpustakaan_itk/core/models/book.dart';
+import 'package:perpustakaan_itk/widgets/book_cover.dart';
 
 class Rekomendasi extends StatefulWidget {
   const Rekomendasi({Key key}) : super(key: key);
 
   @override
-  State<Rekomendasi> createState() => _RekomendasiState();
+  State<Rekomendasi> createState() {
+    return _RekomendasiState();
+  }
 }
 
 class _RekomendasiState extends State<Rekomendasi> {
   @override
   Widget build(BuildContext context) {
+    Book book;
+    // final Future<List<Book>> bookList = getBook(context);
+    // print(bookList);
     return Container(
       height: 200,
       child: Column(
@@ -26,106 +34,42 @@ class _RekomendasiState extends State<Rekomendasi> {
             height: 15,
           ),
           Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/buku2.png',
-                        height: 120,
-                        width: 100,
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        'PETUNJUK PRAKTIS',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 12),
-                      ),
-                      SizedBox(
-                        height: 3,
-                      ),
-                      Text(
-                        'Oleh Andi Wahyu',
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                            color: Color(0xff696969)),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/buku2.png',
-                        height: 120,
-                        width: 100,
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        'PENGANTAR TEKNOLOGI',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 12),
-                      ),
-                      SizedBox(
-                        height: 3,
-                      ),
-                      Text(
-                        'Oleh Andi Wahyu',
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                            color: Color(0xff696969)),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/buku3.png',
-                        height: 120,
-                        width: 100,
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        'ENSIKLOPEDIA Ma',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 12),
-                      ),
-                      SizedBox(
-                        height: 3,
-                      ),
-                      Text(
-                        'Oleh Aminuddin',
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                            color: Color(0xff696969)),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
+              child: FutureBuilder<List<Book>>(
+                  future: getBook(context),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Book>> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: Text('Please wait its loading...'));
+                    } else {
+                      if (snapshot.hasError)
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      else
+                        print(snapshot.data);
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return BookCover(snapshot.data[index]);
+                        },
+                      ); // snapshot.data  :- get your object which is pass from your downloadData() function
+                    }
+                  })
+
+              // child: FutureBuilder(
+              //   builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+              //     return BookCover(bookList);
+              //   },
+              // child: ListView.builder(
+              //   shrinkWrap: true,
+              //   itemCount: bookList.,
+              //   scrollDirection: Axis.horizontal,
+              //   itemBuilder: (BuildContext context, int index) {
+              //     return BookCover(bookList[index]);
+              //   },
+              // ),
+              // ),
+              )
         ],
       ),
     );
