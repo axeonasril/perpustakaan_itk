@@ -88,7 +88,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
           'BOOKING RUANGAN',
           style: GoogleFonts.openSans(
             color: Color(0xffFFFFFF),
-            fontSize: 20,
+            fontSize: 17,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -118,7 +118,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
                 Column(
                   children: [
                     Container(
-                      width: 300,
+                      width: 350,
                       height: 250,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -278,10 +278,14 @@ class _BookingRuanganState extends State<BookingRuangan> {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (BuildContext context) {
-                                  return HasilRuangan();
-                                }));
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (BuildContext context) {
+                                //       return HasilRuangan();
+                                //     },
+                                //   ),
+                                // );
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(

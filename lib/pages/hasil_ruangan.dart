@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'konfirmasi_booking.dart';
+
 class HasilRuangan extends StatefulWidget {
   const HasilRuangan({Key key}) : super(key: key);
 
@@ -13,7 +15,10 @@ class _HasilRuanganState extends State<HasilRuangan> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.only(
+            left: 25,
+            right: 25,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -25,7 +30,7 @@ class _HasilRuanganState extends State<HasilRuangan> {
                 ),
               ),
               Text(
-                '3 Ruangan',
+                '1 Ruangan',
                 style: TextStyle(
                   fontSize: 13,
                   color: Color(0xff666160),
@@ -34,26 +39,29 @@ class _HasilRuanganState extends State<HasilRuangan> {
             ],
           ),
         ),
+        SizedBox(
+          height: 12,
+        ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+          width: 350,
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xffE2E2E2), width: 1),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            borderRadius: BorderRadius.all(
+              Radius.circular(5),
+            ),
           ),
           child: Column(
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(10),
                     child: Row(
                       children: [
                         Image.asset(
                           'assets/ruangan1.png',
-                          height: 85,
-                          width: 80,
+                          height: 75,
+                          width: 75,
                         ),
                         SizedBox(
                           width: 15,
@@ -79,10 +87,10 @@ class _HasilRuanganState extends State<HasilRuangan> {
                             ),
                             InkWell(
                               onTap: () {
-                                // Navigator.push(context, MaterialPageRoute(
-                                //     builder: (BuildContext context) {
-                                //   return HasilRuangan();
-                                // }));
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                  return KonfirmasiBooking();
+                                }));
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
@@ -92,10 +100,10 @@ class _HasilRuanganState extends State<HasilRuangan> {
                                     borderRadius: BorderRadius.circular(5)),
                                 child: Center(
                                   child: Text(
-                                    'CARI RUANGAN',
+                                    'PILIH RUANGAN',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 15,
+                                        fontSize: 13,
                                         fontWeight: FontWeight.w800),
                                   ),
                                 ),

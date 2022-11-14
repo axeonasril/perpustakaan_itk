@@ -30,44 +30,6 @@ class _EksplorRuanganState extends State<EksplorRuangan> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            child: Row(
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/buku4.png',
-                      height: 43,
-                      width: 42,
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'MENGENAL RASUL',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 12),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          'Oleh Imam At-Tirmidzi',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: Color(0xff696969)),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
