@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/widgets/eksplor_ebook.dart';
 import 'package:perpustakaan_itk/widgets/eksplor_kategori.dart';
+import 'package:perpustakaan_itk/widgets/eksplor_ruangan.dart';
 
 class Explore extends StatefulWidget {
   const Explore({Key key}) : super(key: key);
@@ -26,7 +27,7 @@ class _ExploreState extends State<Explore> {
               fontWeight: FontWeight.w800,
             ),
           )),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             height: 45,
@@ -43,7 +44,7 @@ class _ExploreState extends State<Explore> {
                   size: 20,
                 ),
                 border: InputBorder.none,
-                hintText: 'Cari Buku atau Kategori',
+                hintText: 'Cari',
               ),
             ),
           ),
@@ -54,7 +55,11 @@ class _ExploreState extends State<Explore> {
           SizedBox(
             height: 30,
           ),
-          Expanded(child: EksplorEbook())
+          EksplorEbook(),
+          SizedBox(
+            height: 30,
+          ),
+          EksplorRuangan(),
         ],
       ),
     );

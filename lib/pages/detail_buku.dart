@@ -19,17 +19,6 @@ class _DetailBukuState extends State<DetailBuku> {
         leading: BackButton(
           color: Colors.white,
         ),
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: Icon(
-                  Icons.more_horiz,
-                  color: Color(0xffFFFFFF),
-                )),
-          ),
-        ],
         centerTitle: true,
         elevation: 0,
         backgroundColor: Color(0xff6759FF),

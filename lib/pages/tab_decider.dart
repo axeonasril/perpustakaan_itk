@@ -120,7 +120,7 @@ class _TabDeciderState extends State<TabDecider> {
                               ? Color(0xff001AFF)
                               : Color(0xffB4B4B4),
                         ),
-                        Text('Scan',
+                        Text('Ruangan',
                             style: TextStyle(
                                 color: CurrentPage.currentPage == 2
                                     ? Color(0xff001AFF)
