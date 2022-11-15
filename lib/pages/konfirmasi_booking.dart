@@ -142,7 +142,6 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                   children: [
                     Container(
                       width: 350,
-                      height: 200,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(color: Color(0xffE4E4E4), width: 1),
@@ -150,125 +149,156 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                       ),
                       child: Container(
                         margin: EdgeInsets.all(20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  'Tanggal Booking',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: Color(0xff939393),
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Tanggal Booking',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: Color(0xff939393),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text('30/11/2022'),
+                                    SizedBox(
+                                      height: 21,
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                Text('30/11/2022'),
-                                SizedBox(
-                                  height: 21,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Jam Pemakaian',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: Color(0xff939393),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text('12.30 - 13.30'),
+                                  ],
                                 ),
                               ],
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Jam Pemakaian',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: Color(0xff939393),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                Text('12.30 - 13.30'),
-                              ],
+                            Text(
+                              'Sebutkan Keperluan',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: Color(0xff939393),
+                              ),
                             ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              maxLines: 5,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'e.g Mau Sosil',
+                              ),
+                            )
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 250,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return BookingRuangan();
-                        },
-                      ),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 50),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 15,
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xffFF002E),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Center(
-                        child: Text(
-                          'BATALKAN BOOKING',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return Invoice();
-                        },
-                      ),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 50),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 15,
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xff0047FF),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Center(
-                        child: Text(
-                          'LANJUTKAN',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
+          MediaQuery.of(context).viewInsets.vertical > 0
+              ? Container()
+              : Positioned(
+                  bottom: 30,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return BookingRuangan();
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 15,
+                            ),
+                            decoration: BoxDecoration(
+                                color: Color(0xffFF002E),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                              child: Text(
+                                'BATALKAN BOOKING',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return Invoice();
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 15,
+                            ),
+                            decoration: BoxDecoration(
+                                color: Color(0xff0047FF),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                              child: Text(
+                                'LANJUTKAN',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
         ],
       ),
     );

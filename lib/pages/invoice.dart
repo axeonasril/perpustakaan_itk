@@ -121,6 +121,108 @@ class _InvoiceState extends State<Invoice> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          '#98HJ2L',
+                          style: TextStyle(
+                              color: Color(0xff222149),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 45),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Tanggal Booking',
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff939393,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  '30/11/2022',
+                                  style: TextStyle(
+                                      color: Color(0xff222149),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  'Nama Ruangan',
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff939393,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  'Ruang Belajar',
+                                  style: TextStyle(
+                                      color: Color(0xff222149),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Jam Pemakaian',
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff939393,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  '12.30 - 13.30',
+                                  style: TextStyle(
+                                      color: Color(0xff222149),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  'Status',
+                                  style: TextStyle(
+                                    color: Color(
+                                      0xff939393,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  'Pending',
+                                  style: TextStyle(
+                                      color: Color(0xffE0AA1D),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
