@@ -197,9 +197,9 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                             Text(
                               'Sebutkan Keperluan',
                               style: TextStyle(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w400,
                                 fontSize: 15,
-                                color: Color(0xff939393),
+                                color: Color(0xff000000),
                               ),
                             ),
                             SizedBox(
@@ -211,7 +211,7 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                                 border: OutlineInputBorder(),
                                 hintText: 'e.g Mau Sosil',
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -298,7 +298,7 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                       ),
                     ],
                   ),
-                )
+                ),
         ],
       ),
     );

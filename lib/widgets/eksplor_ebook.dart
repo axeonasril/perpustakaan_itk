@@ -12,7 +12,9 @@ class EksplorEbook extends StatefulWidget {
 }
 
 class _EksplorEbookState extends State<EksplorEbook> {
-  List<Kategori> dataKategori = [];
+  List<Kategori> dataKategori = [
+    
+  ];
 
   getDataKategori() async {
     dataKategori = await kategoriController.getKategori(context);
