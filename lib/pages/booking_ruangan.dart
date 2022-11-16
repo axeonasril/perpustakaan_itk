@@ -126,7 +126,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -145,7 +145,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
                                 selectDate(context);
                               },
                               child: Container(
-                                width: 250,
+                                width: double.infinity,
                                 height: 30,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
@@ -274,7 +274,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
                               ],
                             ),
                             SizedBox(
-                              height: 25,
+                              height: 20,
                             ),
                             InkWell(
                               onTap: () {

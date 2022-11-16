@@ -18,7 +18,9 @@ class _LoginState extends State<Login> {
   TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      
       backgroundColor: Color(0xff6759FF),
       body: Padding(
         padding: const EdgeInsets.only(top: 170, left: 30, right: 30),
@@ -74,7 +76,7 @@ class _LoginState extends State<Login> {
                   loading = false;
                 });
               },
-              textInputAction: TextInputAction.go, 
+              textInputAction: TextInputAction.go,
               controller: password,
               obscureText: obsecure,
               decoration: InputDecoration(
