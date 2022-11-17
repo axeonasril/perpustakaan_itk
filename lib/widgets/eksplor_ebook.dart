@@ -12,9 +12,7 @@ class EksplorEbook extends StatefulWidget {
 }
 
 class _EksplorEbookState extends State<EksplorEbook> {
-  List<Kategori> dataKategori = [
-    
-  ];
+  List<Kategori> dataKategori = [];
 
   getDataKategori() async {
     dataKategori = await kategoriController.getKategori(context);
@@ -56,12 +54,12 @@ class _EksplorEbookState extends State<EksplorEbook> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => DetailBuku(
-                                  detailBuku: dataKategori[index],
-                                )));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (BuildContext context) => DetailBuku(
+                    //               detailBuku: dataKategori[index],
+                    //             )));
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,

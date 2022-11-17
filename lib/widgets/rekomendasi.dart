@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/controller/book.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
+import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/widgets/book_cover.dart';
 
 class Rekomendasi extends StatefulWidget {
@@ -43,14 +44,24 @@ class _RekomendasiState extends State<Rekomendasi> {
                     } else {
                       if (snapshot.hasError)
                         return Center(child: Text('Error: ${snapshot.error}'));
-                      else
-                        print(snapshot.data);
                       return ListView.builder(
                         shrinkWrap: true,
                         itemCount: snapshot.data.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
-                          return BookCover(snapshot.data[index]);
+                          return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        DetailBuku(
+                                      detailBuku: snapshot.data[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: BookCover(book: snapshot.data[index]));
                         },
                       ); // snapshot.data  :- get your object which is pass from your downloadData() function
                     }

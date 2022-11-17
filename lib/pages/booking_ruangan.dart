@@ -78,6 +78,13 @@ class _BookingRuanganState extends State<BookingRuangan> {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.history_outlined),
+            color: Colors.white,
+          ),
+        ],
         leading: BackButton(
           color: Colors.white,
         ),

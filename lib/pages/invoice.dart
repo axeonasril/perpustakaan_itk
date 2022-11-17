@@ -63,6 +63,7 @@ class _InvoiceState extends State<Invoice> {
                       Radius.circular(5),
                     ),
                   ),
+                  // Judul Status Booking Berhasil
                   child: Container(
                     padding: EdgeInsets.only(left: 20),
                     margin: EdgeInsets.all(20),
@@ -115,6 +116,7 @@ class _InvoiceState extends State<Invoice> {
                         SizedBox(
                           height: 15,
                         ),
+                        // Invoice Number
                         Text(
                           'INVOICE NUMBER',
                           style: TextStyle(
@@ -136,6 +138,7 @@ class _InvoiceState extends State<Invoice> {
                         SizedBox(
                           height: 15,
                         ),
+                        // Tanggal Booking, Jam Pemakaian, Nama Ruangan & Status
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -304,6 +307,7 @@ class _InvoiceState extends State<Invoice> {
               ],
             ),
           ),
+          // Button Data Pemohon
           Positioned(
             bottom: 100,
             left: 0,

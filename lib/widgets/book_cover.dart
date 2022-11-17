@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:perpustakaan_itk/core/controller/book.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
 
 class BookCover extends StatelessWidget {
-  const BookCover(
-    book, {
+  Book book;
+  BookCover({
     Key key,
+    this.book,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Book book;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
       child: Column(

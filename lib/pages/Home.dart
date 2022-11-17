@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import "package:flutter_feather_icons/flutter_feather_icons.dart";
+import 'package:perpustakaan_itk/pages/bookmark.dart';
 import 'package:perpustakaan_itk/widgets/bottom_navbar.dart';
 import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
 import 'package:perpustakaan_itk/widgets/carousel.dart';
@@ -24,10 +25,10 @@ class _HomeState extends State<Home> {
         actions: [
           GestureDetector(
               onTap: () {
-                // Navigator.pushReplacement(
-                // context,
-                // MaterialPageRoute(
-                //     builder: (BuildContext context) => TabDecider()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Bookmark()));
               },
               child: Icon(
                 Icons.bookmark_outline,

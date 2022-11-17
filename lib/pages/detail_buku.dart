@@ -1,9 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/controller/bookmark.dart';
+import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
 
 class DetailBuku extends StatefulWidget {
-  final Kategori detailBuku;
+  final Book detailBuku;
   const DetailBuku({Key key, this.detailBuku}) : super(key: key);
 
   @override
@@ -57,8 +61,7 @@ class _DetailBukuState extends State<DetailBuku> {
                   Column(
                     children: [
                       Image.network(
-                        widget.detailBuku.berkas ??
-                            'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
+                        'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
                         width: 180,
                       ),
                     ],
@@ -67,7 +70,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 25,
                   ),
                   Text(
-                    widget.detailBuku.namaKategori,
+                    widget.detailBuku.judul,
                     style: GoogleFonts.openSans(
                       color: Color(0xff222149),
                       fontSize: 20,
@@ -79,7 +82,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 10,
                   ),
                   Text(
-                    'Oleh Asril ',
+                    'Oleh ' + widget.detailBuku.namaPengarang,
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 15,
@@ -91,7 +94,7 @@ class _DetailBukuState extends State<DetailBuku> {
                     height: 10,
                   ),
                   Text(
-                    'Jurusan ',
+                    'Jurusan ' + (widget.detailBuku.jurusan ?? '-'),
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
@@ -117,7 +120,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('E-book')
+                            Text(widget.detailBuku.kategori.namaKategori)
                           ],
                         ),
                         Column(
@@ -130,7 +133,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('100+')
+                            Text(widget.detailBuku.tahunTerbit)
                           ],
                         ),
                         Column(
@@ -143,7 +146,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 color: Color(0xff939393),
                               ),
                             ),
-                            Text('2018')
+                            Text(widget.detailBuku.tahunTerbit)
                           ],
                         ),
                       ],
@@ -169,7 +172,10 @@ class _DetailBukuState extends State<DetailBuku> {
                           height: 10,
                         ),
                         Text(
-                          'Petunjuk Praktis Metode Penelitian Teknologi Informasi berisikan tentang step by step secara simple apabila ingin menerapkan suatu Metode Penilitian terhadap kategori Teknologi Informasi.',
+                          widget.detailBuku.deskripsi
+                              .toString()
+                              .replaceAll('<p>', '')
+                              .replaceAll('</p>', ''),
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
@@ -254,17 +260,24 @@ class _DetailBukuState extends State<DetailBuku> {
                             ),
                           ),
                         ),
-                        Container(
-                            margin: EdgeInsets.only(right: 50),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            decoration: BoxDecoration(
-                                color: Color(0xff6759ff),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Icon(
-                              Icons.bookmark_outline,
-                              color: Colors.white,
-                            )),
+                        GestureDetector(
+                                  onTap: () {
+                                    addBookmark(context, widget.detailBuku.id);
+                                  },
+                                  child: Container(
+                                      margin: EdgeInsets.only(right: 50),
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 10, horizontal: 15),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff6759ff),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Icon(
+                                        widget.detailBuku.isBookmark == true ? Icons.bookmark : 
+                                        Icons.bookmark_outline,
+                                        color: Colors.white,
+                                      )),
+                                ),
                       ],
                     ),
                   ),

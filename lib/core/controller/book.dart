@@ -12,10 +12,9 @@ Future<List<Book>> getBook(BuildContext context) async {
   try {
     Dio dio = Dio();
     Response response = await dio.get(url_api + '/dokumen',
-        queryParameters: {'kategori_id': 1},
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
-    if (response.data['data'] == null) {
+    if (response.data['data']['data'] == null) {
       showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -25,7 +24,7 @@ Future<List<Book>> getBook(BuildContext context) async {
             );
           });
     } else {
-      response.data['data'].forEach((e) => book.add(Book.fromJson(e)));
+      response.data['data']['data'].forEach((e) => book.add(Book.fromJson(e)));
     }
   } catch (e) {
     print(e);
