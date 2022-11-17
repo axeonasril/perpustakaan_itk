@@ -113,7 +113,7 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                                         decoration: BoxDecoration(
                                             color: Color(0xffD1D1D1),
                                             borderRadius:
-                                                BorderRadius.circular(5)),
+                                                BorderRadius.circular(5),),
                                         child: Center(
                                           child: Text(
                                             'PILIH RUANGAN',
