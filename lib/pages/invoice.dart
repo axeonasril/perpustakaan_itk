@@ -66,7 +66,9 @@ class _InvoiceState extends State<Invoice> {
                   // Judul Status Booking Berhasil
                   child: Container(
                     padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.symmetric(
+                      vertical: 20,
+                    ),
                     child: Column(
                       children: [
                         Row(
@@ -184,47 +186,52 @@ class _InvoiceState extends State<Invoice> {
                                 ),
                               ],
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Jam Pemakaian',
-                                  style: TextStyle(
-                                    color: Color(
-                                      0xff939393,
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 20,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Jam Pemakaian',
+                                    style: TextStyle(
+                                      color: Color(
+                                        0xff939393,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  '12.30 - 13.30',
-                                  style: TextStyle(
-                                      color: Color(0xff222149),
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  'Status',
-                                  style: TextStyle(
-                                    color: Color(
-                                      0xff939393,
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    '12.30 - 13.30',
+                                    style: TextStyle(
+                                        color: Color(0xff222149),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    'Status',
+                                    style: TextStyle(
+                                      color: Color(
+                                        0xff939393,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  'Pending',
-                                  style: TextStyle(
-                                      color: Color(0xffE0AA1D),
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    'Pending',
+                                    style: TextStyle(
+                                        color: Color(0xffE0AA1D),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -258,7 +265,7 @@ class _InvoiceState extends State<Invoice> {
                               ],
                             ),
                             SizedBox(
-                              height: 25,
+                              height: 20,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -309,7 +316,7 @@ class _InvoiceState extends State<Invoice> {
           ),
           // Button Data Pemohon
           Positioned(
-            bottom: 100,
+            bottom: 50,
             left: 0,
             right: 0,
             child: Column(
@@ -326,10 +333,10 @@ class _InvoiceState extends State<Invoice> {
                     // );
                   },
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    margin: EdgeInsets.symmetric(horizontal: 30),
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        vertical: 15,
+                        vertical: 10,
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(

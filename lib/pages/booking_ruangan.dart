@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:date_format/date_format.dart';
 import 'package:intl/intl.dart';
 import 'package:perpustakaan_itk/pages/hasil_ruangan.dart';
+import 'package:perpustakaan_itk/pages/ruangan_saya.dart';
 
 class BookingRuangan extends StatefulWidget {
   const BookingRuangan({Key key}) : super(key: key);
@@ -80,7 +81,16 @@ class _BookingRuanganState extends State<BookingRuangan> {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return RuanganSaya();
+                  },
+                ),
+              );
+            },
             icon: Icon(Icons.history_outlined),
             color: Colors.white,
           ),

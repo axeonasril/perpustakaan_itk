@@ -16,8 +16,8 @@ class _HasilRuanganState extends State<HasilRuangan> {
       children: [
         Container(
           padding: EdgeInsets.only(
-            left: 25,
-            right: 25,
+            left: 35,
+            right: 35,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
