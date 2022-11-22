@@ -82,7 +82,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (BuildContext context) {

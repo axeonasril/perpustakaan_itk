@@ -216,17 +216,10 @@ class _DetailBukuState extends State<DetailBuku> {
                                       height: 7,
                                     ),
                                     Text(
-                                      'Geografi',
+                                      'Judul Buku',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 15),
-                                    ),
-                                    Text(
-                                      '10 Buku',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 12,
-                                          color: Color(0xff696969)),
                                     ),
                                   ],
                                 ),
@@ -261,23 +254,23 @@ class _DetailBukuState extends State<DetailBuku> {
                           ),
                         ),
                         GestureDetector(
-                                  onTap: () {
-                                    addBookmark(context, widget.detailBuku.id);
-                                  },
-                                  child: Container(
-                                      margin: EdgeInsets.only(right: 50),
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 10, horizontal: 15),
-                                      decoration: BoxDecoration(
-                                          color: Color(0xff6759ff),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Icon(
-                                        widget.detailBuku.isBookmark == true ? Icons.bookmark : 
-                                        Icons.bookmark_outline,
-                                        color: Colors.white,
-                                      )),
-                                ),
+                          onTap: () {
+                            addBookmark(context, widget.detailBuku.id);
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(right: 50),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 15),
+                              decoration: BoxDecoration(
+                                  color: Color(0xff6759ff),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Icon(
+                                widget.detailBuku.isBookmark == true
+                                    ? Icons.bookmark
+                                    : Icons.bookmark_outline,
+                                color: Colors.white,
+                              )),
+                        ),
                       ],
                     ),
                   ),

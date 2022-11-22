@@ -74,7 +74,7 @@ class _EksplorKategoriState extends State<EksplorKategori> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Kerja Praktik',
+                          'Magang',
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16),
                         ),

@@ -111,9 +111,10 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                                         padding: EdgeInsets.symmetric(
                                             vertical: 10, horizontal: 55),
                                         decoration: BoxDecoration(
-                                            color: Color(0xffD1D1D1),
-                                            borderRadius:
-                                                BorderRadius.circular(5),),
+                                          color: Color(0xffD1D1D1),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
                                         child: Center(
                                           child: Text(
                                             'PILIH RUANGAN',
@@ -231,7 +232,7 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.push(
+                          Navigator.pop(
                             context,
                             MaterialPageRoute(
                               builder: (BuildContext context) {

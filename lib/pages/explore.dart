@@ -17,16 +17,17 @@ class _ExploreState extends State<Explore> {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
-          backgroundColor: Color(0xffFFFFFF),
-          elevation: 0,
-          title: Text(
-            'EKSPLOR PERPUS',
-            style: GoogleFonts.openSans(
-              color: Color(0xff001AFF),
-              fontSize: 20,
-              fontWeight: FontWeight.w800,
-            ),
-          )),
+        backgroundColor: Color(0xffFFFFFF),
+        elevation: 0,
+        title: Text(
+          'EKSPLOR PERPUSTAKAAN ITK',
+          style: GoogleFonts.openSans(
+            color: Color(0xff001AFF),
+            fontSize: 20,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Container(
