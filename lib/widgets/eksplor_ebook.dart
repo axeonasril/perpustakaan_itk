@@ -16,7 +16,9 @@ class _EksplorEbookState extends State<EksplorEbook> {
 
   getDataKategori() async {
     dataKategori = await kategoriController.getKategori(context);
-    setState(() {});
+    setState(() {
+      
+    });
   }
 
   @override

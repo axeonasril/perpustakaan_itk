@@ -1,57 +1,49 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:meta/meta_meta.dart';
-import 'package:perpustakaan_itk/pages/terakhir_dibaca_pages.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
-class TerakhirDibaca extends StatefulWidget {
-  const TerakhirDibaca({Key key}) : super(key: key);
+class TerakhirDibacaPages extends StatefulWidget {
+  const TerakhirDibacaPages({Key key}) : super(key: key);
 
   @override
-  State<TerakhirDibaca> createState() => _TerakhirDibacaState();
+  State<TerakhirDibacaPages> createState() => _TerakhirDibacaPagesState();
 }
 
-class _TerakhirDibacaState extends State<TerakhirDibaca> {
+class _TerakhirDibacaPagesState extends State<TerakhirDibacaPages> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'TERAKHIR DIBACA',
-                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
+    return Scaffold(
+      backgroundColor: Color(0xffFFFFFF),
+      appBar: AppBar(
+        leading: BackButton(
+          color: Color(0xffFFFFFF),
+          onPressed: () {
+            CurrentPage.goHome();
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => TabDecider(),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return TerakhirDibacaPages();
-                      },
-                    ),
-                  );
-                },
-                child: Text(
-                  'Lihat Semua',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                      color: Color(0xff696969)),
-                ),
-              ),
-            ],
+            );
+          },
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Color(0xff6759ff),
+        title: Text(
+          'TERAKHIR DIBACA',
+          style: GoogleFonts.openSans(
+            color: Color(0xffFFFFFF),
+            fontSize: 20,
+            fontWeight: FontWeight.w800,
           ),
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-            child: Row(
+        ),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -95,8 +87,8 @@ class _TerakhirDibacaState extends State<TerakhirDibaca> {
                 )
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
