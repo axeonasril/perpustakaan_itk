@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:javascript/javascript.dart';
@@ -10,9 +12,7 @@ Future<List<Kategori>> getKategori(context) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
-    Response response = await dio.get(url_api + '/kategori',queryParameters: {
-      'nama_kategori': 'Nama Kategori', 
-    },
+    Response response = await dio.get(url_api + '/kategori',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
     if (response.data['data'] == null) {
@@ -25,10 +25,12 @@ Future<List<Kategori>> getKategori(context) async {
             );
           });
     } else {
+      response.data['data'].forEach((e) => print(e));
       response.data['data'].forEach((e) => kategori.add(Kategori.fromJson(e)));
     }
   } catch (e) {
     print(e);
   }
+  print(kategori);
   return kategori;
 }

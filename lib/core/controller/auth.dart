@@ -13,7 +13,7 @@ void login(email, password, context) async {
   try {
     Dio dio = Dio();
     Response response = await dio
-        .post(url_api + '/login', data: {'email': email, 'password': password});
+        .post(url_api + '/login', data: {'email': email, 'password': password},);
     if (response.data['data'] == null) {
       showDialog(
           context: context,

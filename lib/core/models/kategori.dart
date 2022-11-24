@@ -20,7 +20,7 @@ class Kategori {
     id = json['id'];
     namaKategori = json['nama_kategori'];
     detail = json['detail'];
-    berkas = json['berkas'];
+    
     isPembimbing = json['isPembimbing'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
