@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
         actions: [
           GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => Bookmark()));

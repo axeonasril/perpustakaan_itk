@@ -12,8 +12,10 @@ void login(email, password, context) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
-    Response response = await dio
-        .post(url_api + '/login', data: {'email': email, 'password': password},);
+    Response response = await dio.post(
+      url_api + '/login',
+      data: {'email': email, 'password': password},
+    );
     if (response.data['data'] == null) {
       showDialog(
           context: context,

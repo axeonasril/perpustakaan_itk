@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/bookmark_models.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
+import 'package:perpustakaan_itk/core/models/show_buku.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,6 +26,34 @@ Future<List<Book>> getBook(BuildContext context) async {
           });
     } else {
       response.data['data']['data'].forEach((e) => book.add(Book.fromJson(e)));
+    }
+  } catch (e) {
+    print(e);
+  }
+  return book;
+}
+
+Future<ShowBuku> showBook(BuildContext context, id) async {
+  ShowBuku book;
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  try {
+    Dio dio = Dio();
+    print(id);
+    Response response = await dio.get(url_api + '/dokumen/' + id.toString(),
+        options: Options(
+            headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
+    print(response.data);
+    if (response.data['data'] == null) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Gagal load'),
+              content: Text('Kategori kosong'),
+            );
+          });
+    } else {
+      book = ShowBuku.fromJson(response.data['data']);
     }
   } catch (e) {
     print(e);

@@ -45,16 +45,22 @@ class _FirstSplashState extends State<FirstSplash> {
                 width: 140,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(80.0),
-              child: SizedBox(height: 200),
-            ),
-            Text(
-              'Loading...',
-              style: GoogleFonts.openSans(
-                  color: Color(0xff939393),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Loading...',
+                    style: GoogleFonts.openSans(
+                        color: Color(0xff939393),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(
+                    height: 100,
+                  ),
+                ],
+              ),
             )
           ],
         ),

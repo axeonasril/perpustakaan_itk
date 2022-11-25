@@ -18,9 +18,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  flutter_pdfview: ^1.2.5
+  path_provider: any
   async: ^2.8.2
   carousel_slider: ^4.1.1
   convex_bottom_bar: ^3.1.0+1
@@ -36,6 +38,7 @@ dependencies:
   mobile_scanner: ^2.0.0
   persistent_bottom_nav_bar: ^5.0.2
   shared_preferences: ^2.0.15
+  http: ^0.13.5
 
 dev_dependencies:
 

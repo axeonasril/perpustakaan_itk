@@ -11,9 +11,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String tempUser = prefs.getString('user');
-  runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.grey),
-    debugShowCheckedModeBanner: false,
-    home: (tempUser == null) ? Login() : TabDecider(),
-  ));
+  runApp(
+    MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.grey),
+      debugShowCheckedModeBanner: false,
+      home: FirstSplash(),
+    ),
+  );
 }

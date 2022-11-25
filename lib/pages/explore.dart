@@ -17,6 +17,7 @@ class _ExploreState extends State<Explore> {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xffFFFFFF),
         elevation: 0,
         title: Text(

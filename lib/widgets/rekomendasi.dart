@@ -59,7 +59,7 @@ class _RekomendasiState extends State<Rekomendasi> {
                                       detailBuku: snapshot.data[index],
                                     ),
                                   ),
-                                );
+                                ).then((_) => setState(() {}));
                               },
                               child: BookCover(book: snapshot.data[index]));
                         },

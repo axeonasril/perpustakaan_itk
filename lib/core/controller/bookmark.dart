@@ -68,7 +68,7 @@ void addBookmark(BuildContext context, dokumen_id) async {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Berhasil'),
-              content: Text('Bookmark berhasil ditambahkan'),
+              content: Text(response.data['data']['message'].toString()),
             );
           });
     }

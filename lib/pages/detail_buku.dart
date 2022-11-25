@@ -2,9 +2,12 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/controller/book.dart';
 import 'package:perpustakaan_itk/core/controller/bookmark.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
+import 'package:perpustakaan_itk/core/models/show_buku.dart';
+import 'package:perpustakaan_itk/pages/baca_buku.dart';
 
 class DetailBuku extends StatefulWidget {
   final Book detailBuku;
@@ -15,6 +18,20 @@ class DetailBuku extends StatefulWidget {
 }
 
 class _DetailBukuState extends State<DetailBuku> {
+  bool bookmarkAdded = false;
+
+  setBookmark() {
+    setState(() {
+      bookmarkAdded = widget.detailBuku.isBookmark;
+    });
+  }
+
+  @override
+  void initState() {
+    setBookmark();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -230,50 +247,68 @@ class _DetailBukuState extends State<DetailBuku> {
                       ],
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 50),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 15),
-                            decoration: BoxDecoration(
-                                color: Color(0xff6759ff),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                'Baca Buku',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            addBookmark(context, widget.detailBuku.id);
-                          },
-                          child: Container(
-                              margin: EdgeInsets.only(right: 50),
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 15),
-                              decoration: BoxDecoration(
-                                  color: Color(0xff6759ff),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Icon(
-                                widget.detailBuku.isBookmark == true
-                                    ? Icons.bookmark
-                                    : Icons.bookmark_outline,
-                                color: Colors.white,
-                              )),
-                        ),
-                      ],
-                    ),
-                  ),
+                  FutureBuilder<ShowBuku>(
+                      future: showBook(context, widget.detailBuku.id),
+                      builder: (context, snapshot) {
+                        return snapshot.data == null
+                            ? Center(child: CircularProgressIndicator())
+                            : GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                    return BacaBuku(urlBuku: snapshot.data.fullDokumen.file);
+                                  }));
+                                },
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 50),
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 15, horizontal: 15),
+                                        decoration: BoxDecoration(
+                                            color: Color(0xff6759ff),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Center(
+                                          child: Text(
+                                            'Baca Buku',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        addBookmark(
+                                            context, widget.detailBuku.id);
+                                        setState(() {
+                                          bookmarkAdded = !bookmarkAdded;
+                                        });
+                                      },
+                                      child: Container(
+                                          margin: EdgeInsets.only(right: 50),
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 10, horizontal: 15),
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff6759ff),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Icon(
+                                            bookmarkAdded == true
+                                                ? Icons.bookmark
+                                                : Icons.bookmark_outline,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              );
+                      })
                 ],
               )),
         ],
