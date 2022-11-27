@@ -40,21 +40,24 @@ class _ScanState extends State<Scan> {
               if (barcode.rawValue == null) {
                 debugPrint('Failed to scan Barcode');
               } else {
-                setState(() {
-                  code = barcode.rawValue;
-                });
+                setState(
+                  () {
+                    code = barcode.rawValue;
+                  },
+                );
                 if (code ==
                     'http://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api/checkin-pengunjung') {
                   checkin(context);
                 } else {
                   showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Gagal'),
-                          content: Text('QR Tidak Valid'),
-                        );
-                      });
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Gagal'),
+                        content: Text('QR Tidak Valid'),
+                      );
+                    },
+                  );
                 }
               }
             },

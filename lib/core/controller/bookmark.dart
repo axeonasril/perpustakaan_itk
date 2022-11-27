@@ -29,8 +29,11 @@ Future<List<BookmarkModels>> getBookmarkList(BuildContext context) async {
             );
           });
     } else {
-      response.data['data']
-          .forEach((e) => bookmarklist.add(BookmarkModels.fromJson(e)));
+      response.data['data'].forEach(
+        (e) => bookmarklist.add(
+          BookmarkModels.fromJson(e),
+        ),
+      );
     }
   } catch (e) {
     print(e);

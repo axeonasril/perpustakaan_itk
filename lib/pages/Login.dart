@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
         padding: const EdgeInsets.only(top: 170, left: 30, right: 30),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,    
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/book_login.png',

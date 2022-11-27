@@ -35,52 +35,61 @@ class _RekomendasiState extends State<Rekomendasi> {
             height: 15,
           ),
           Expanded(
-              child: FutureBuilder<List<Book>>(
-                  future: getBook(context),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<List<Book>> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: Text('Please wait its loading...'));
-                    } else {
-                      if (snapshot.hasError)
-                        return Center(child: Text('Error: ${snapshot.error}'));
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: snapshot.data.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        DetailBuku(
-                                      detailBuku: snapshot.data[index],
-                                    ),
-                                  ),
-                                ).then((_) => setState(() {}));
-                              },
-                              child: BookCover(book: snapshot.data[index]));
+            child: FutureBuilder<List<Book>>(
+              future: getBook(context),
+              builder:
+                  (BuildContext context, AsyncSnapshot<List<Book>> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: Text('Please wait its loading...'),
+                  );
+                } else {
+                  if (snapshot.hasError)
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => DetailBuku(
+                                detailBuku: snapshot.data[index],
+                              ),
+                            ),
+                          ).then(
+                            (_) => setState(() {}),
+                          );
                         },
-                      ); // snapshot.data  :- get your object which is pass from your downloadData() function
-                    }
-                  })
+                        child: BookCover(
+                          book: snapshot.data[index],
+                        ),
+                      );
+                    },
+                  );
+                }
+              },
+            ),
 
-              // child: FutureBuilder(
-              //   builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-              //     return BookCover(bookList);
-              //   },
-              // child: ListView.builder(
-              //   shrinkWrap: true,
-              //   itemCount: bookList.,
-              //   scrollDirection: Axis.horizontal,
-              //   itemBuilder: (BuildContext context, int index) {
-              //     return BookCover(bookList[index]);
-              //   },
-              // ),
-              // ),
-              )
+            // child: FutureBuilder(
+            //   builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            //     return BookCover(bookList);
+            //   },
+            // child: ListView.builder(
+            //   shrinkWrap: true,
+            //   itemCount: bookList.,
+            //   scrollDirection: Axis.horizontal,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     return BookCover(bookList[index]);
+            //   },
+            // ),
+            // ),
+          )
         ],
       ),
     );
