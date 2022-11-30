@@ -1,1 +1,1 @@
-String url_api = 'http://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api';
+String url_api = 'https://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api';
