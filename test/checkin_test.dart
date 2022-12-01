@@ -4,7 +4,7 @@ import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  test('Get Book', () async {
+  test('Checkin Pengunjung', () async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Dio dio = Dio();
     Response response = await dio.post(

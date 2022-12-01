@@ -27,4 +27,17 @@ void main() {
 
     expect(prefs.containsKey('token'), true);
   });
+  test('Checkin Pengunjung Test', () async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Dio dio = Dio();
+    Response response = await dio.post(
+      url_api + '/checkin-pengunjung',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ' + prefs.getString('token'),
+        },
+      ),
+    );
+    expect(response.data['data'] != null, false);
+  });
 }
