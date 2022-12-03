@@ -78,8 +78,10 @@ class _DetailBukuState extends State<DetailBuku> {
                   Column(
                     children: [
                       Image.network(
-                        'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
-                        width: 180,
+                        widget.detailBuku.gambarDokumen,
+                        height: 120,
+                        width: 100,
+                        fit: BoxFit.cover,
                       ),
                     ],
                   ),
@@ -256,7 +258,9 @@ class _DetailBukuState extends State<DetailBuku> {
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(
                                       builder: (BuildContext context) {
-                                    return BacaBuku(urlBuku: snapshot.data.fullDokumen.file);
+                                    return BacaBuku(
+                                        urlBuku:
+                                            snapshot.data.fullDokumen.file);
                                   }));
                                 },
                                 child: Row(

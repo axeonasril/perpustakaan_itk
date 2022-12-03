@@ -3,7 +3,7 @@ class Kategori {
   String namaKategori;
   String detail;
   String berkas;
-  String isPembimbing;
+  bool isPembimbing;
   String createdAt;
   String updatedAt;
 
@@ -20,7 +20,7 @@ class Kategori {
     id = json['id'];
     namaKategori = json['nama_kategori'];
     detail = json['detail'];
-    
+
     isPembimbing = json['isPembimbing'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

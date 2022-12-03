@@ -7,89 +7,92 @@ Book bookFromJson(String str) => Book.fromJson(json.decode(str));
 String bookToJson(Book data) => json.encode(data.toJson());
 
 class Book {
-    Book({
-        this.id,
-        this.judul,
-        this.kategori,
-        this.tahunTerbit,
-        this.namaPengarang,
-        this.penerbit,
-        this.deskripsi,
-        this.userId,
-        this.cover,
-        this.lembarPengesahan,
-        this.kataPengantar,
-        this.ringkasan,
-        this.daftarIsi,
-        this.daftarGambar,
-        this.daftarTabel,
-        this.daftarNotasi,
-        this.abstractEn,
-        this.abstractId,
-        this.bab1,
-        this.bab2,
-        this.bab3,
-        this.bab4,
-        this.kesimpulan,
-        this.daftarPustaka,
-        this.lampiran,
-        this.paper,
-        this.lembarPersetujuan,
-        this.fullDokumen,
-        this.status,
-        this.dataTambahan,
-        this.jurusan,
-        this.tanggalDibuat,
-        this.isBookmark,
-        this.jumlahKunjungan,
-        this.pembimbing,
-        this.isPinjam,
-    });
+  Book({
+    this.id,
+    this.judul,
+    this.kategori,
+    this.tahunTerbit,
+    this.namaPengarang,
+    this.penerbit,
+    this.deskripsi,
+    this.userId,
+    this.gambarDokumen,
+    this.cover,
+    this.lembarPengesahan,
+    this.kataPengantar,
+    this.ringkasan,
+    this.daftarIsi,
+    this.daftarGambar,
+    this.daftarTabel,
+    this.daftarNotasi,
+    this.abstractEn,
+    this.abstractId,
+    this.bab1,
+    this.bab2,
+    this.bab3,
+    this.bab4,
+    this.kesimpulan,
+    this.daftarPustaka,
+    this.lampiran,
+    this.paper,
+    this.lembarPersetujuan,
+    this.fullDokumen,
+    this.status,
+    this.dataTambahan,
+    this.jurusan,
+    this.tanggalDibuat,
+    this.isBookmark,
+    this.jumlahKunjungan,
+    this.pembimbing,
+    this.isPinjam,
+  });
 
-    int id;
-    String judul;
-    Kategori kategori;
-    String tahunTerbit;
-    String namaPengarang;
-    String penerbit;
-    dynamic deskripsi;
-    String userId;
-    dynamic cover;
-    dynamic lembarPengesahan;
-    dynamic kataPengantar;
-    dynamic ringkasan;
-    dynamic daftarIsi;
-    dynamic daftarGambar;
-    dynamic daftarTabel;
-    dynamic daftarNotasi;
-    dynamic abstractEn;
-    dynamic abstractId;
-    dynamic bab1;
-    dynamic bab2;
-    dynamic bab3;
-    dynamic bab4;
-    dynamic kesimpulan;
-    dynamic daftarPustaka;
-    dynamic lampiran;
-    dynamic paper;
-    dynamic lembarPersetujuan;
-    dynamic fullDokumen;
-    String status;
-    dynamic dataTambahan;
-    dynamic jurusan;
-    String tanggalDibuat;
-    bool isBookmark;
-    int jumlahKunjungan;
-    dynamic pembimbing;
-    bool isPinjam;
+  int id;
+  String judul;
+  Kategori kategori;
+  String tahunTerbit;
+  String namaPengarang;
+  String penerbit;
+  dynamic deskripsi;
+  String userId;
+  dynamic cover;
+  dynamic gambarDokumen;
+  dynamic lembarPengesahan;
+  dynamic kataPengantar;
+  dynamic ringkasan;
+  dynamic daftarIsi;
+  dynamic daftarGambar;
+  dynamic daftarTabel;
+  dynamic daftarNotasi;
+  dynamic abstractEn;
+  dynamic abstractId;
+  dynamic bab1;
+  dynamic bab2;
+  dynamic bab3;
+  dynamic bab4;
+  dynamic kesimpulan;
+  dynamic daftarPustaka;
+  dynamic lampiran;
+  dynamic paper;
+  dynamic lembarPersetujuan;
+  dynamic fullDokumen;
+  String status;
+  dynamic dataTambahan;
+  dynamic jurusan;
+  String tanggalDibuat;
+  bool isBookmark;
+  int jumlahKunjungan;
+  dynamic pembimbing;
+  bool isPinjam;
 
-    factory Book.fromJson(Map<String, dynamic> json) => Book(
+  factory Book.fromJson(Map<String, dynamic> json) => Book(
         id: json["id"],
         judul: json["judul"],
         kategori: Kategori.fromJson(json["kategori"]),
         tahunTerbit: json["tahun_terbit"],
         namaPengarang: json["nama_pengarang"],
         penerbit: json["penerbit"],
+        gambarDokumen: json["gambar_dokumen"],
         deskripsi: json["deskripsi"],
         userId: json["user_id"],
         cover: json["cover"],
@@ -120,9 +123,9 @@ class Book {
         jumlahKunjungan: json["jumlah_kunjungan"],
         pembimbing: json["pembimbing"],
         isPinjam: json["isPinjam"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "judul": judul,
         "kategori": kategori.toJson(),
@@ -130,6 +133,7 @@ class Book {
         "nama_pengarang": namaPengarang,
         "penerbit": penerbit,
         "deskripsi": deskripsi,
+        "gambar_dokumen": gambarDokumen,
         "user_id": userId,
         "cover": cover,
         "lembar_pengesahan": lembarPengesahan,
@@ -159,5 +163,5 @@ class Book {
         "jumlah_kunjungan": jumlahKunjungan,
         "pembimbing": pembimbing,
         "isPinjam": isPinjam,
-    };
+      };
 }

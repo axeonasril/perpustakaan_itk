@@ -17,7 +17,7 @@ class BookCover extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
+            book.gambarDokumen,
             height: 120,
             width: 100,
             fit: BoxFit.cover,

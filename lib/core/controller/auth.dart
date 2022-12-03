@@ -11,11 +11,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 void login(email, password, context) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
+    
     Dio dio = Dio();
+    print('asmzxcnzmxncmxznc');
+
     Response response = await dio.post(
       url_api + '/login',
       data: {'email': email, 'password': password},
     );
+
     if (response.data['data'] == null) {
       showDialog(
           context: context,

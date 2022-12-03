@@ -19,16 +19,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
+        
         automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Bookmark()));
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Bookmark(),
+                  ),
+                );
               },
               child: Icon(
                 Icons.bookmark_outline,
@@ -59,6 +63,7 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Container(
+            child: ListView(),
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(

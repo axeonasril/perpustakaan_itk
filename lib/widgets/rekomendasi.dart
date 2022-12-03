@@ -17,8 +17,8 @@ class _RekomendasiState extends State<Rekomendasi> {
   @override
   Widget build(BuildContext context) {
     Book book;
-    // final Future<List<Book>> bookList = getBook(context);
-    // print(bookList);
+    final Future<List<Book>> bookList = getBook(context);
+    print(bookList);
     return Container(
       height: 200,
       child: Column(
