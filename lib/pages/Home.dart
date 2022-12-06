@@ -19,10 +19,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
-        
         automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
@@ -60,10 +58,9 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      body: Stack(
+      body: ListView(
         children: [
           Container(
-            child: ListView(),
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
@@ -72,9 +69,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
+            transform: Matrix4.translationValues(0, -100, 0),
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: ListView(
-              physics: BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Carousel(),
                 SizedBox(

@@ -38,22 +38,7 @@ class _CarouselState extends State<Carousel> {
               builder: (BuildContext context) {
                 return Stack(children: [
                   Image.asset(
-                    'assets/carousel1.png',
-                  ),
-                  Positioned(
-                    top: 0,
-                    bottom: 0,
-                    left: 0,
-                    right: 100,
-                    child: ClipRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.2)),
-                        ),
-                      ),
-                    ),
+                    'assets/carousel.png',
                   ),
                   Positioned(
                       top: 40,

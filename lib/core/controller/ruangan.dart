@@ -1,19 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
-import 'package:perpustakaan_itk/core/models/bookmark_models.dart';
-import 'package:perpustakaan_itk/core/models/kategori.dart';
-import 'package:perpustakaan_itk/core/models/show_buku.dart';
+import 'package:perpustakaan_itk/core/models/booking_ruangan.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<List<Book>> getBook(BuildContext context) async {
-  List<Book> book = [];
+Future<List<Ruangan>> getRuangan(BuildContext context) async {
+  List<Ruangan> ruangan = [];
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
-    Response response = await dio.get(url_api + '/dokumen',
+    Response response = await dio.get(url_api + '/ruangan',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
     if (response.data['data'] == null) {
@@ -22,20 +19,20 @@ Future<List<Book>> getBook(BuildContext context) async {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Gagal load'),
-              content: Text('Kategori kosong'),
+              content: Text('Ruangan kosong'),
             );
           });
     } else {
-      response.data['data'].forEach((e) => book.add(Book.fromJson(e)));
+      response.data['data'].forEach((e) => ruangan.add(Ruangan.fromJson(e)));
     }
   } catch (e) {
     print(e);
   }
-  return book;
+  return ruangan;
 }
 
-Future<ShowBuku> showBook(BuildContext context, id) async {
-  ShowBuku book;
+Future<BookingRuangan> bookingRuangan(BuildContext context, id) async {
+  BookingRuangan ruangan;
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
@@ -59,20 +56,20 @@ Future<ShowBuku> showBook(BuildContext context, id) async {
             );
           });
     } else {
-      book = ShowBuku.fromJson(response.data['data']);
+      ruangan = BookingRuangan.fromJson(response.data['data']);
     }
   } catch (e) {
     print(e);
   }
-  return book;
+  return ruangan;
 }
 
-void pinjamBuku(context, id) async {
+void pinjamRuangan(context, id) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/peminjaman-dokumen',
+      url_api + '/ruangan',
       data: {
         'dokumen_id': id.toString(),
       },
