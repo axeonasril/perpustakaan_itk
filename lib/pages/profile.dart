@@ -62,199 +62,202 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ),
-      body: Stack(
+      body: ListView(
         children: [
-          Column(
+          Stack(
             children: [
-              Container(
-                width: double.infinity,
-                height: 120,
-                decoration: BoxDecoration(
-                  color: Color(0xff6759ff),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(5)),
-                ),
+              Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      color: Color(0xff6759ff),
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(5)),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-          Positioned(
-            top: 60,
-            right: 0,
-            left: 0,
-            bottom: 0,
-            child: ListView(physics: BouncingScrollPhysics(), children: [
               Column(
                 children: [
                   SizedBox(
-                    height: 110,
-                    width: 110,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg')),
-                      ],
+                    height: 50,
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 110,
+                        width: 110,
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                    'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg')),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    user == null ? '' : user.name.toString(),
+                    style: GoogleFonts.openSans(
+                      color: Color(0xff222149),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Material(
+                      child: ListTile(
+                        tileColor: Colors.white,
+                        leading: Icon(
+                          Icons.label_important_rounded,
+                          size: 30,
+                          color: Color(0xff1C4CFF),
+                        ),
+                        title: const Text(
+                          'Program Studi',
+                          style: TextStyle(
+                            color: Color(
+                              0xff696969,
+                            ),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        subtitle: Text(
+                          user == null ? '' : user.prodi.toString(),
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Material(
+                      elevation: 0,
+                      child: ListTile(
+                        tileColor: Colors.white,
+                        leading: Icon(
+                          Icons.layers_rounded,
+                          size: 30,
+                          color: Color(0xff1C4CFF),
+                        ),
+                        title: const Text(
+                          'Jurusan',
+                          style: TextStyle(
+                            color: Color(
+                              0xff696969,
+                            ),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        subtitle: Text(
+                          user == null ? '' : user.jurusan.toString(),
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Material(
+                      child: ListTile(
+                        tileColor: Colors.white,
+                        leading: Icon(
+                          Icons.mail_outline_rounded,
+                          size: 30,
+                          color: Color(0xff1C4CFF),
+                        ),
+                        title: const Text(
+                          'Email',
+                          style: TextStyle(
+                            color: Color(
+                              0xff696969,
+                            ),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        isThreeLine: true,
+                        subtitle: Text(
+                          user == null ? '' : user.email.toString(),
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                                title: const Text('Keluar'),
+                                content: const Text(
+                                    'Apakah anda yakin untuk keluar?'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'Cancel'),
+                                    child: const Text('Tidak'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      CurrentPage.goHome();
+                                      logout(context);
+                                    },
+                                    child: const Text('Ya'),
+                                  ),
+                                ],
+                              ));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                        ),
+                        decoration: BoxDecoration(
+                            color: Color(0xff6759ff),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Center(
+                          child: Text(
+                            'Keluar',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
                     ),
                   )
                 ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Text(
-                user == null ? '' : user.name.toString(),
-                style: GoogleFonts.openSans(
-                  color: Color(0xff222149),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Material(
-                  child: ListTile(
-                    tileColor: Colors.white,
-                    leading: Icon(
-                      Icons.label_important_rounded,
-                      size: 30,
-                      color: Color(0xff1C4CFF),
-                    ),
-                    title: const Text(
-                      'Program Studi',
-                      style: TextStyle(
-                        color: Color(
-                          0xff696969,
-                        ),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    subtitle: Text(
-                      user == null ? '' : user.prodi.toString(),
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Material(
-                  elevation: 0,
-                  child: ListTile(
-                    tileColor: Colors.white,
-                    leading: Icon(
-                      Icons.layers_rounded,
-                      size: 30,
-                      color: Color(0xff1C4CFF),
-                    ),
-                    title: const Text(
-                      'Jurusan',
-                      style: TextStyle(
-                        color: Color(
-                          0xff696969,
-                        ),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    subtitle: Text(
-                      user == null ? '' : user.jurusan.toString(),
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Material(
-                  child: ListTile(
-                    tileColor: Colors.white,
-                    leading: Icon(
-                      Icons.mail_outline_rounded,
-                      size: 30,
-                      color: Color(0xff1C4CFF),
-                    ),
-                    title: const Text(
-                      'Email',
-                      style: TextStyle(
-                        color: Color(
-                          0xff696969,
-                        ),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    isThreeLine: true,
-                    subtitle: Text(
-                      user == null ? '' : user.email.toString(),
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 120,
-              ),
-              GestureDetector(
-                onTap: () {
-                  showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                            title: const Text('Keluar'),
-                            content:
-                                const Text('Apakah anda yakin untuk keluar?'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancel'),
-                                child: const Text('Tidak'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  CurrentPage.goHome();
-                                  logout(context);
-                                },
-                                child: const Text('Ya'),
-                              ),
-                            ],
-                          ));
-                },
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 50),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    decoration: BoxDecoration(
-                        color: Color(0xff6759ff),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Text(
-                        'Keluar',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ),
               )
-            ]),
+            ],
           ),
         ],
       ),

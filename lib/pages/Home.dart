@@ -60,35 +60,43 @@ class _HomeState extends State<Home> {
       ),
       body: ListView(
         children: [
-          Container(
-            width: double.infinity,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Color(0xff6759ff),
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(5)),
-            ),
-          ),
-          Container(
-            transform: Matrix4.translationValues(0, -100, 0),
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Carousel(),
-                SizedBox(
-                  height: 25,
+          Stack(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xff6759ff),
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(5)),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Carousel(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Rekomendasi(),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TerakhirDibaca(),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    BukuTerbaru(),
+                  ],
                 ),
-                Rekomendasi(),
-                SizedBox(
-                  height: 5,
-                ),
-                TerakhirDibaca(),
-                SizedBox(
-                  height: 25,
-                ),
-                BukuTerbaru(),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

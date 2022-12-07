@@ -72,7 +72,7 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
                         height: 7,
                       ),
                       Text(
-                        'PENGANTAR TEKNOLOGI',
+                        'PENGANTAR TEKNO',
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 12),
                       ),

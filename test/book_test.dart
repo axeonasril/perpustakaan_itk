@@ -27,4 +27,20 @@ void main() {
 
     expect(isBookExist, true);
   });
+  test('Pinjam Buku', () async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    Dio dio = Dio();
+    Response response = await dio.post(
+      url_api + '/peminjaman-dokumen',
+      data: {
+        'dokumen_id': 1,
+      },
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ' + prefs.getString('token'),
+        },
+      ),
+    );
+  });
 }

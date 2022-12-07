@@ -27,16 +27,16 @@ class BookCover extends StatelessWidget {
           ),
           Text(
             book.judul,
-            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
+            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
           ),
           SizedBox(
-            height: 3,
+            height: 4,
           ),
           Text(
             book.namaPengarang,
             style: TextStyle(
                 fontWeight: FontWeight.normal,
-                fontSize: 12,
+                fontSize: 13,
                 color: Color(0xff696969)),
           ),
         ],

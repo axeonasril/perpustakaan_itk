@@ -23,7 +23,11 @@ Future<List<Ruangan>> getRuangan(BuildContext context) async {
             );
           });
     } else {
-      response.data['data'].forEach((e) => ruangan.add(Ruangan.fromJson(e)));
+      response.data['data'].forEach(
+        (e) => ruangan.add(
+          Ruangan.fromJson(e),
+        ),
+      );
     }
   } catch (e) {
     print(e);
@@ -38,7 +42,7 @@ Future<BookingRuangan> bookingRuangan(BuildContext context, id) async {
     Dio dio = Dio();
     print(id);
     Response response = await dio.get(
-      url_api + '/dokumen/' + id.toString(),
+      url_api + '/ruangan' + id.toString(),
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),
@@ -86,7 +90,7 @@ void pinjamRuangan(context, id) async {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Gagal load'),
-              content: Text('Kategori kosong'),
+              content: Text('Ruangan Tidak Ditemukan'),
             );
           });
     } else {
@@ -95,7 +99,7 @@ void pinjamRuangan(context, id) async {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Berhasil Dipinjam'),
-              content: Text('Buku Telah Dipinjam'),
+              content: Text('Ruangan Berhasil Dipinjam'),
             );
           });
     }

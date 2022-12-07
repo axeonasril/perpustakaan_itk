@@ -47,9 +47,6 @@ class _TerakhirDibacaState extends State<TerakhirDibaca> {
               ),
             ],
           ),
-          SizedBox(
-            height: 15,
-          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

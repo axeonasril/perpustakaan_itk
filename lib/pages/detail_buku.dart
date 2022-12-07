@@ -60,38 +60,33 @@ class _DetailBukuState extends State<DetailBuku> {
           ),
         ),
       ),
-      body: Stack(
+      body: ListView(
         children: [
-          Column(
+          Stack(
             children: [
-              Container(
-                width: double.infinity,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Color(0xff6759ff),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(5)),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-              top: 40,
-              right: 0,
-              left: 0,
-              bottom: 0,
-              child: ListView(
-                physics: BouncingScrollPhysics(),
+              Column(
                 children: [
-                  Column(
-                    children: [
-                      Image.network(
-                        widget.detailBuku.gambarDokumen,
-                        height: 120,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+                  Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xff6759ff),
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(5)),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Image.network(
+                    widget.detailBuku.gambarDokumen,
+                    height: 120,
+                    width: 100,
+                    fit: BoxFit.cover,
                   ),
                   SizedBox(
                     height: 25,
@@ -339,9 +334,11 @@ class _DetailBukuState extends State<DetailBuku> {
                                   ),
                                 ],
                               );
-                      })
+                      }),
                 ],
-              )),
+              ),
+            ],
+          ),
         ],
       ),
     );

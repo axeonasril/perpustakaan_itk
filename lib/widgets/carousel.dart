@@ -26,7 +26,7 @@ class _CarouselState extends State<Carousel> {
               aspectRatio: 5.0,
               initialPage: 3,
               height: 150.0,
-              autoPlay: true,
+              autoPlay: false,
               autoPlayInterval: const Duration(seconds: 5),
               onPageChanged: (int index, _) {
                 setState(() {

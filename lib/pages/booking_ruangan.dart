@@ -24,6 +24,8 @@ class _BookingRuanganState extends State<BookingRuangan> {
   TimeOfDay awalSelectedTime = TimeOfDay(hour: 00, minute: 00);
   TimeOfDay akhirSelectedTime = TimeOfDay(hour: 00, minute: 00);
 
+  bool cariRuangan = false;
+
   Future<Null> selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
@@ -130,7 +132,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: Column(
+            child: ListView(
               children: [
                 Column(
                   children: [
@@ -295,14 +297,9 @@ class _BookingRuanganState extends State<BookingRuangan> {
                             ),
                             InkWell(
                               onTap: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (BuildContext context) {
-                                //       return HasilRuangan();
-                                //     },
-                                //   ),
-                                // );
+                                setState(() {
+                                  cariRuangan = true;
+                                });
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
@@ -329,7 +326,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
                     SizedBox(
                       height: 15,
                     ),
-                    HasilRuangan(),
+                    cariRuangan == true ? HasilRuangan() : Container(),
                   ],
                 ),
               ],

@@ -56,11 +56,13 @@ class _EksplorEbookState extends State<EksplorEbook> {
                 return InkWell(
                   onTap: () {
                     // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (BuildContext context) => DetailBuku(
-                    //               detailBuku: dataKategori[index],
-                    //             )));
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (BuildContext context) => DetailBuku(
+                    //       detailBuku: dataKategori[index],
+                    //     ),
+                    //   ),
+                    // );
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
