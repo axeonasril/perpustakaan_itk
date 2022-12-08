@@ -14,7 +14,7 @@ class HasilRuangan extends StatefulWidget {
 class _HasilRuanganState extends State<HasilRuangan> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Ruangan>>(
+    return FutureBuilder<List<BookingRuangan>>(
         future: getRuangan(context),
         builder: (context, snapshot) {
           return snapshot.data == null
@@ -110,12 +110,18 @@ class _HasilRuanganState extends State<HasilRuangan> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  Navigator.push(context,
-                                                      MaterialPageRoute(builder:
-                                                          (BuildContext
-                                                              context) {
-                                                    return KonfirmasiBooking();
-                                                  }));
+                                                  if (snapshot.data[index]
+                                                      .statusKursi) {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return KonfirmasiBooking();
+                                                        },
+                                                      ),
+                                                    );
+                                                  }
                                                 },
                                                 child: Container(
                                                   padding: EdgeInsets.symmetric(

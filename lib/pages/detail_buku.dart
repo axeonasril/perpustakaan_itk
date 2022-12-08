@@ -265,9 +265,11 @@ class _DetailBukuState extends State<DetailBuku> {
                                         if (isPinjamBuku == false) {
                                           pinjamBuku(
                                               context, widget.detailBuku.id);
-                                          setState(() {
-                                            isPinjamBuku = true;
-                                          });
+                                          setState(
+                                            () {
+                                              isPinjamBuku = true;
+                                            },
+                                          );
                                         } else {
                                           Navigator.push(context,
                                               MaterialPageRoute(builder:

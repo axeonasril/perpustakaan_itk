@@ -68,6 +68,7 @@ class _RekomendasiState extends State<Rekomendasi> {
                         },
                         child: BookCover(
                           book: snapshot.data[index],
+                          
                         ),
                       );
                     },
