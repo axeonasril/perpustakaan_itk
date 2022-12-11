@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/models/invoice.dart' as model;
 
 class Invoice extends StatefulWidget {
-  const Invoice({Key key}) : super(key: key);
+  final model.Invoice invoice;
+  const Invoice({Key key, this.invoice}) : super(key: key);
 
   @override
   State<Invoice> createState() => _InvoiceState();
@@ -131,7 +133,7 @@ class _InvoiceState extends State<Invoice> {
                           height: 10,
                         ),
                         Text(
-                          '#98HJ2L',
+                          widget.invoice.kode,
                           style: TextStyle(
                               color: Color(0xff222149),
                               fontWeight: FontWeight.w700,
@@ -159,7 +161,7 @@ class _InvoiceState extends State<Invoice> {
                                   height: 5,
                                 ),
                                 Text(
-                                  '30/11/2022',
+                                  widget.invoice.tanggal.toString(),
                                   style: TextStyle(
                                       color: Color(0xff222149),
                                       fontWeight: FontWeight.w500),
@@ -179,7 +181,7 @@ class _InvoiceState extends State<Invoice> {
                                   height: 5,
                                 ),
                                 Text(
-                                  'Ruang Belajar',
+                                  widget.invoice.ruangan.namaRuangan,
                                   style: TextStyle(
                                       color: Color(0xff222149),
                                       fontWeight: FontWeight.w500),
@@ -205,7 +207,9 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    '12.30 - 13.30',
+                                    widget.invoice.waktuAwal +
+                                          ' - ' +
+                                          widget.invoice.waktuAkhir,
                                     style: TextStyle(
                                         color: Color(0xff222149),
                                         fontWeight: FontWeight.w500),
@@ -225,7 +229,7 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    'Pending',
+                                    widget.invoice.status,
                                     style: TextStyle(
                                         color: Color(0xffE0AA1D),
                                         fontWeight: FontWeight.w500),
@@ -274,7 +278,7 @@ class _InvoiceState extends State<Invoice> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Nama Pemohon',
+                                      widget.invoice.user.name,
                                       style: TextStyle(
                                         color: Color(0xff222149),
                                         fontWeight: FontWeight.w600,
@@ -285,7 +289,7 @@ class _InvoiceState extends State<Invoice> {
                                       height: 10,
                                     ),
                                     Text(
-                                      'Email Pemohon',
+                                      widget.invoice.user.email,
                                       style: TextStyle(
                                         color: Color(0xff222149),
                                         fontSize: 13,
@@ -295,7 +299,7 @@ class _InvoiceState extends State<Invoice> {
                                       height: 2,
                                     ),
                                     Text(
-                                      'Role Pemohon',
+                                      widget.invoice.user.role,
                                       style: TextStyle(
                                         color: Color(0xff222149),
                                         fontSize: 13,

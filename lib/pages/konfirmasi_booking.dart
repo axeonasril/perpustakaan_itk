@@ -1,17 +1,27 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:perpustakaan_itk/pages/booking_ruangan.dart';
+import 'package:intl/intl.dart';
+import 'package:perpustakaan_itk/core/controller/ruangan.dart';
+import 'package:perpustakaan_itk/core/models/booking_ruangan.dart';
 import 'package:perpustakaan_itk/pages/hasil_ruangan.dart';
 import 'package:perpustakaan_itk/pages/invoice.dart';
 
 class KonfirmasiBooking extends StatefulWidget {
-  const KonfirmasiBooking({Key key}) : super(key: key);
+  final BookingRuangan ruangan;
+  final String tanggal;
+  final String waktu_awal;
+  final String waktu_akhir;
+  const KonfirmasiBooking(
+      {Key key, this.ruangan, this.tanggal, this.waktu_awal, this.waktu_akhir})
+      : super(key: key);
 
   @override
   State<KonfirmasiBooking> createState() => _KonfirmasiBookingState();
 }
 
 class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
+  TextEditingController keperluan = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,174 +62,188 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
             bottom: 0,
             left: 0,
             right: 0,
-            child: Column(
-              children: [
-                Container(
-                  width: 350,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Color(0xffE2E2E2), width: 1),
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  'assets/ruangan1.png',
-                                  height: 75,
-                                  width: 75,
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Ruang Audit',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 15),
-                                    ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                      'Max 10 orang',
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          color: Color(0xff696969)),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        // Navigator.push(context, MaterialPageRoute(
-                                        //     builder: (BuildContext context) {
-                                        //   return KonfirmasiBooking();
-                                        // },),);
-                                      },
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 10, horizontal: 55),
-                                        decoration: BoxDecoration(
-                                          color: Color(0xffD1D1D1),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'PILIH RUANGAN',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w800),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    width: 350,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xffE2E2E2), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/ruangan1.png',
+                                    height: 75,
+                                    width: 75,
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        widget.ruangan.namaRuangan,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 15),
+                                      ),
+                                      SizedBox(
+                                        height: 4,
+                                      ),
+                                      Text(
+                                        'Max ' +
+                                            widget.ruangan.jumlahOrang +
+                                            ' orang',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            color: Color(0xff696969)),
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          // Navigator.push(context, MaterialPageRoute(
+                                          //     builder: (BuildContext context) {
+                                          //   return KonfirmasiBooking();
+                                          // },),);
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 10, horizontal: 55),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffD1D1D1),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'PILIH RUANGAN',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w800),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 350,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Color(0xffE4E4E4), width: 1),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Container(
-                        margin: EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Tanggal Booking',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15,
-                                        color: Color(0xff939393),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text('30/11/2022'),
-                                    SizedBox(
-                                      height: 21,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Jam Pemakaian',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15,
-                                        color: Color(0xff939393),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text('12.30 - 13.30'),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'Sebutkan Keperluan',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15,
-                                color: Color(0xff000000),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            TextFormField(
-                              maxLines: 5,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'e.g Mau Sosil',
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 350,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                              Border.all(color: Color(0xffE4E4E4), width: 1),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Container(
+                          margin: EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Tanggal Booking',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15,
+                                          color: Color(0xff939393),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 4,
+                                      ),
+                                      Text(DateFormat('d/M/y').format(
+                                          DateTime.parse(widget.tanggal))),
+                                      SizedBox(
+                                        height: 21,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Jam Pemakaian',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15,
+                                          color: Color(0xff939393),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 4,
+                                      ),
+                                      Text(widget.waktu_awal +
+                                          ' - ' +
+                                          widget.waktu_akhir),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                'Sebutkan Keperluan',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: keperluan,
+                                maxLines: 5,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'e.g Mau Sosil',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           MediaQuery.of(context).viewInsets.vertical > 0
@@ -231,16 +255,7 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                   child: Column(
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return BookingRuangan();
-                              },
-                            ),
-                          );
-                        },
+                        onTap: () {},
                         child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           child: Container(
@@ -267,14 +282,13 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return Invoice();
-                              },
-                            ),
-                          );
+                          bookingRuangan(
+                              context,
+                              widget.ruangan.id,
+                              widget.waktu_awal,
+                              widget.waktu_akhir,
+                              keperluan.text,
+                              widget.tanggal);
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 50),

@@ -8,6 +8,7 @@ import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
 import 'package:perpustakaan_itk/core/models/show_buku.dart';
 import 'package:perpustakaan_itk/pages/baca_buku.dart';
+import 'package:flutter/gestures.dart';
 
 class DetailBuku extends StatefulWidget {
   final Book detailBuku;
@@ -20,7 +21,7 @@ class DetailBuku extends StatefulWidget {
 class _DetailBukuState extends State<DetailBuku> {
   bool bookmarkAdded = false;
   bool isPinjamBuku = false;
-
+  bool expanded = false;
   setisPinjamBuku() {
     setState(() {
       isPinjamBuku = widget.detailBuku.isPinjam;
@@ -193,16 +194,51 @@ class _DetailBukuState extends State<DetailBuku> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          widget.detailBuku.deskripsi
-                              .toString()
-                              .replaceAll('<p>', '')
-                              .replaceAll('</p>', ''),
+                        RichText(
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15,
-                              color: Color(0xff939393)),
+                          text: new TextSpan(
+                              text: expanded == false
+                                  ? widget.detailBuku.deskripsi
+                                              .toString()
+                                              .replaceAll('<p>', '')
+                                              .replaceAll('</p>', ' ')
+                                              .length <
+                                          380
+                                      ? widget.detailBuku.deskripsi
+                                          .toString()
+                                          .replaceAll('<p>', '')
+                                          .replaceAll('</p>', ' ')
+                                      : widget.detailBuku.deskripsi
+                                              .toString()
+                                              .replaceAll('<p>', '')
+                                              .replaceAll('</p>', '')
+                                              .substring(0, 380) +
+                                          '... '
+                                  : widget.detailBuku.deskripsi
+                                      .toString()
+                                      .replaceAll('<p>', '')
+                                      .replaceAll('</p>', ' '),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                  color: Color(0xff939393)),
+                              children: [
+                                new TextSpan(
+                                  text: expanded == false
+                                      ? 'Show More'
+                                      : 'Show Less',
+                                  recognizer: new TapGestureRecognizer()
+                                    ..onTap = () {
+                                      setState(() {
+                                        expanded = !expanded;
+                                      });
+                                    },
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                      color: Colors.blue[900]),
+                                )
+                              ]),
                         ),
                         SizedBox(
                           height: 20,

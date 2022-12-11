@@ -5,7 +5,11 @@ import 'package:perpustakaan_itk/core/models/booking_ruangan.dart';
 import 'konfirmasi_booking.dart';
 
 class HasilRuangan extends StatefulWidget {
-  const HasilRuangan({Key key}) : super(key: key);
+  final String tanggal;
+  final String waktu_awal;
+  final String waktu_akhir;
+  const HasilRuangan({Key key, this.tanggal, this.waktu_awal, this.waktu_akhir})
+      : super(key: key);
 
   @override
   State<HasilRuangan> createState() => _HasilRuanganState();
@@ -15,7 +19,8 @@ class _HasilRuanganState extends State<HasilRuangan> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<BookingRuangan>>(
-        future: getRuangan(context),
+        future: getRuangan(context, widget.tanggal.split(' ')[0],
+            widget.waktu_awal, widget.waktu_akhir),
         builder: (context, snapshot) {
           return snapshot.data == null
               ? Container()
@@ -117,7 +122,16 @@ class _HasilRuanganState extends State<HasilRuangan> {
                                                       MaterialPageRoute(
                                                         builder: (BuildContext
                                                             context) {
-                                                          return KonfirmasiBooking();
+                                                          return KonfirmasiBooking(
+                                                            ruangan: snapshot
+                                                                .data[index],
+                                                            tanggal:
+                                                                widget.tanggal,
+                                                            waktu_awal: widget
+                                                                .waktu_awal,
+                                                            waktu_akhir: widget
+                                                                .waktu_akhir,
+                                                          );
                                                         },
                                                       ),
                                                     );
@@ -128,7 +142,11 @@ class _HasilRuanganState extends State<HasilRuangan> {
                                                       vertical: 10,
                                                       horizontal: 70),
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xff0047FF),
+                                                    color: snapshot.data[index]
+                                                                .statusKursi ==
+                                                            false
+                                                        ? Colors.grey
+                                                        : Color(0xff0047FF),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             7),

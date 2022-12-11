@@ -326,7 +326,13 @@ class _BookingRuanganState extends State<BookingRuangan> {
                     SizedBox(
                       height: 15,
                     ),
-                    cariRuangan == true ? HasilRuangan() : Container(),
+                    cariRuangan == true
+                        ? HasilRuangan(
+                            tanggal: selectedDate.toString(),
+                            waktu_awal: awaltime.toString(),
+                            waktu_akhir: akhirtime.toString(),
+                          )
+                        : Container(),
                   ],
                 ),
               ],
