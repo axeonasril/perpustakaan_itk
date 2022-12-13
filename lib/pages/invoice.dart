@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:perpustakaan_itk/core/models/invoice.dart' as model;
 
 class Invoice extends StatefulWidget {
@@ -133,7 +134,7 @@ class _InvoiceState extends State<Invoice> {
                           height: 10,
                         ),
                         Text(
-                          widget.invoice.kode,
+                          widget.invoice.kode.toString(),
                           style: TextStyle(
                               color: Color(0xff222149),
                               fontWeight: FontWeight.w700,
@@ -161,7 +162,10 @@ class _InvoiceState extends State<Invoice> {
                                   height: 5,
                                 ),
                                 Text(
-                                  widget.invoice.tanggal.toString(),
+                                  DateFormat('d/M/y')
+                                      .format(DateTime.parse(
+                                          widget.invoice.tanggal.toString()))
+                                      .toString(),
                                   style: TextStyle(
                                       color: Color(0xff222149),
                                       fontWeight: FontWeight.w500),
@@ -181,7 +185,7 @@ class _InvoiceState extends State<Invoice> {
                                   height: 5,
                                 ),
                                 Text(
-                                  widget.invoice.ruangan.namaRuangan,
+                                  widget.invoice.ruangan.namaRuangan.toString(),
                                   style: TextStyle(
                                       color: Color(0xff222149),
                                       fontWeight: FontWeight.w500),
@@ -207,9 +211,9 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    widget.invoice.waktuAwal +
-                                          ' - ' +
-                                          widget.invoice.waktuAkhir,
+                                    widget.invoice.waktuAwal.toString() +
+                                        ' - ' +
+                                        widget.invoice.waktuAkhir.toString(),
                                     style: TextStyle(
                                         color: Color(0xff222149),
                                         fontWeight: FontWeight.w500),
@@ -229,7 +233,7 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    widget.invoice.status,
+                                    widget.invoice.status.toString(),
                                     style: TextStyle(
                                         color: Color(0xffE0AA1D),
                                         fontWeight: FontWeight.w500),
@@ -278,7 +282,7 @@ class _InvoiceState extends State<Invoice> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      widget.invoice.user.name,
+                                      widget.invoice.user.name.toString(),
                                       style: TextStyle(
                                         color: Color(0xff222149),
                                         fontWeight: FontWeight.w600,

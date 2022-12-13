@@ -80,7 +80,7 @@ void bookingRuangan(
             );
           });
     } else {
-      print(response.data['data']);
+      print(response.data['data']['data']);
       var invoice = model.Invoice.fromJson(response.data['data']['data']);
       Navigator.push(
         context,

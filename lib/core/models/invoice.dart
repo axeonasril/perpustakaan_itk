@@ -21,7 +21,7 @@ class Invoice {
   });
 
   final int id;
-  final User user;
+  final    user;
   final String kode;
   final Ruangan ruangan;
   final DateTime tanggal;
