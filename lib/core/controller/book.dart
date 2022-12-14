@@ -14,7 +14,7 @@ Future<List<Book>> getBook(BuildContext context) async {
   try {
     Dio dio = Dio();
 
-    Response response = await dio.get(url_api + '/dokumen',
+    Response response = await dio.get(url_api + '/data-dokumen',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
     if (response.data['data'] == null) {
@@ -39,11 +39,12 @@ Future<List<Book>> getBook(BuildContext context) async {
 Future<ShowBuku> showBook(BuildContext context, id) async {
   ShowBuku book;
   SharedPreferences prefs = await SharedPreferences.getInstance();
+
   try {
     Dio dio = Dio();
     print(id);
     Response response = await dio.get(
-      url_api + '/dokumen' + id.toString(),
+      url_api + '/data-dokumen' + id.toString(),
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

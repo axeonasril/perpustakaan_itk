@@ -49,6 +49,7 @@ class _RekomendasiState extends State<Rekomendasi> {
                       child: Text('Error: ${snapshot.error}'),
                     );
                   return ListView.builder(
+                    physics: BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: snapshot.data.length,
                     scrollDirection: Axis.horizontal,
@@ -75,20 +76,6 @@ class _RekomendasiState extends State<Rekomendasi> {
                 }
               },
             ),
-
-            // child: FutureBuilder(
-            //   builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-            //     return BookCover(bookList);
-            //   },
-            // child: ListView.builder(
-            //   shrinkWrap: true,
-            //   itemCount: bookList.,
-            //   scrollDirection: Axis.horizontal,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     return BookCover(bookList[index]);
-            //   },
-            // ),
-            // ),
           )
         ],
       ),

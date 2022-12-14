@@ -80,8 +80,8 @@ class _BookmarkState extends State<Bookmark> {
                                         padding: EdgeInsets.all(15),
                                         child: Row(
                                           children: [
-                                            Image.asset(
-                                              'assets/buku4.png',
+                                            Image.network(
+                                              snapshot.data[index].gambarDokumen,
                                               height: 65,
                                               width: 60,
                                             ),

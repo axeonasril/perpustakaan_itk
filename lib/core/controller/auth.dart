@@ -13,8 +13,6 @@ void login(email, password, context) async {
   try {
     
     Dio dio = Dio();
-    print('asmzxcnzmxncmxznc');
-
     Response response = await dio.post(
       url_api + '/login',
       data: {'email': email, 'password': password},

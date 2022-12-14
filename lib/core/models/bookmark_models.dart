@@ -9,30 +9,34 @@ class BookmarkModels {
         this.id,
         this.userId,
         this.dokumen,
+        this.gambarDokumen,
         this.createdAt,
         this.updatedAt,
     });
 
-    int id;
-    UserId userId;
-    Dokumen dokumen;
-    DateTime createdAt;
-    DateTime updatedAt;
+    final int id;
+    final UserId userId;
+    final Dokumen dokumen;
+    final String gambarDokumen;
+    final DateTime createdAt;
+    final DateTime updatedAt;
 
     factory BookmarkModels.fromJson(Map<String, dynamic> json) => BookmarkModels(
-        id: json["id"],
-        userId: UserId.fromJson(json["user_id"]),
-        dokumen: Dokumen.fromJson(json["dokumen"]),
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        id: json["id"] == null ? null : json["id"],
+        userId: json["user_id"] == null ? null : UserId.fromJson(json["user_id"]),
+        dokumen: json["dokumen"] == null ? null : Dokumen.fromJson(json["dokumen"]),
+        gambarDokumen: json["gambar_dokumen"] == null ? null : json["gambar_dokumen"],
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "user_id": userId.toJson(),
-        "dokumen": dokumen.toJson(),
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "id": id == null ? null : id,
+        "user_id": userId == null ? null : userId.toJson(),
+        "dokumen": dokumen == null ? null : dokumen.toJson(),
+        "gambar_dokumen": gambarDokumen == null ? null : gambarDokumen,
+        "created_at": createdAt == null ? null : createdAt.toIso8601String(),
+        "updated_at": updatedAt == null ? null : updatedAt.toIso8601String(),
     };
 }
 
@@ -40,39 +44,55 @@ class Dokumen {
     Dokumen({
         this.id,
         this.judul,
-        this.tahunTerbit,
+        this.gambarDokumen,
         this.namaPengarang,
-        this.kategoriId,
-        this.createdAt,
-        this.updatedAt,
+        this.kategori,
+        this.penerbit,
+        this.tahunTerbit,
+        this.tanggalDibuat,
+        this.isBookmark,
+        this.jumlahKunjungan,
+        this.isPinjam,
     });
 
-    int id;
-    String judul;
-    String tahunTerbit;
-    String namaPengarang;
-    int kategoriId;
-    DateTime createdAt;
-    DateTime updatedAt;
+    final int id;
+    final String judul;
+    final String gambarDokumen;
+    final String namaPengarang;
+    final String kategori;
+    final String penerbit;
+    final String tahunTerbit;
+    final String tanggalDibuat;
+    final bool isBookmark;
+    final int jumlahKunjungan;
+    final bool isPinjam;
 
     factory Dokumen.fromJson(Map<String, dynamic> json) => Dokumen(
-        id: json["id"],
-        judul: json["judul"],
-        tahunTerbit: json["tahun_terbit"],
-        namaPengarang: json["nama_pengarang"],
-        kategoriId: json["kategori_id"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        id: json["id"] == null ? null : json["id"],
+        judul: json["judul"] == null ? null : json["judul"],
+        gambarDokumen: json["gambar_dokumen"] == null ? null : json["gambar_dokumen"],
+        namaPengarang: json["nama_pengarang"] == null ? null : json["nama_pengarang"],
+        kategori: json["kategori"] == null ? null : json["kategori"],
+        penerbit: json["penerbit"] == null ? null : json["penerbit"],
+        tahunTerbit: json["tahun_terbit"] == null ? null : json["tahun_terbit"],
+        tanggalDibuat: json["tanggal_dibuat"] == null ? null : json["tanggal_dibuat"],
+        isBookmark: json["isBookmark"] == null ? null : json["isBookmark"],
+        jumlahKunjungan: json["jumlah_kunjungan"] == null ? null : json["jumlah_kunjungan"],
+        isPinjam: json["isPinjam"] == null ? null : json["isPinjam"],
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "judul": judul,
-        "tahun_terbit": tahunTerbit,
-        "nama_pengarang": namaPengarang,
-        "kategori_id": kategoriId,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "id": id == null ? null : id,
+        "judul": judul == null ? null : judul,
+        "gambar_dokumen": gambarDokumen == null ? null : gambarDokumen,
+        "nama_pengarang": namaPengarang == null ? null : namaPengarang,
+        "kategori": kategori == null ? null : kategori,
+        "penerbit": penerbit == null ? null : penerbit,
+        "tahun_terbit": tahunTerbit == null ? null : tahunTerbit,
+        "tanggal_dibuat": tanggalDibuat == null ? null : tanggalDibuat,
+        "isBookmark": isBookmark == null ? null : isBookmark,
+        "jumlah_kunjungan": jumlahKunjungan == null ? null : jumlahKunjungan,
+        "isPinjam": isPinjam == null ? null : isPinjam,
     };
 }
 
@@ -87,31 +107,31 @@ class UserId {
         this.role,
     });
 
-    String name;
-    String email;
-    String nim;
-    String jurusan;
-    String prodi;
-    String angkatan;
-    String role;
+    final String name;
+    final String email;
+    final dynamic nim;
+    final dynamic jurusan;
+    final dynamic prodi;
+    final dynamic angkatan;
+    final String role;
 
     factory UserId.fromJson(Map<String, dynamic> json) => UserId(
-        name: json["name"],
-        email: json["email"],
+        name: json["name"] == null ? null : json["name"],
+        email: json["email"] == null ? null : json["email"],
         nim: json["nim"],
         jurusan: json["jurusan"],
         prodi: json["prodi"],
         angkatan: json["angkatan"],
-        role: json["role"],
+        role: json["role"] == null ? null : json["role"],
     );
 
     Map<String, dynamic> toJson() => {
-        "name": name,
-        "email": email,
+        "name": name == null ? null : name,
+        "email": email == null ? null : email,
         "nim": nim,
         "jurusan": jurusan,
         "prodi": prodi,
         "angkatan": angkatan,
-        "role": role,
+        "role": role == null ? null : role,
     };
 }

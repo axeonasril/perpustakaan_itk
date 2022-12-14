@@ -46,7 +46,7 @@ class _ScanState extends State<Scan> {
                   },
                 );
                 if (code ==
-                    'http://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api/checkin-pengunjung') {
+                    'https://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/api/checkin-pengunjung') {
                   checkin(context);
                 } else {
                   showDialog(
