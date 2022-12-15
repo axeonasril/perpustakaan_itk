@@ -1,19 +1,16 @@
-import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:perpustakaan_itk/core/controller/ruangan.dart';
 import 'package:perpustakaan_itk/core/models/booking_ruangan.dart';
-import 'package:perpustakaan_itk/pages/hasil_ruangan.dart';
-import 'package:perpustakaan_itk/pages/invoice.dart';
 
 class KonfirmasiBooking extends StatefulWidget {
   final BookingRuangan ruangan;
   final String tanggal;
-  final String waktu_awal;
-  final String waktu_akhir;
+  final String waktuAwal;
+  final String waktuAkhir;
   const KonfirmasiBooking(
-      {Key key, this.ruangan, this.tanggal, this.waktu_awal, this.waktu_akhir})
+      {Key key, this.ruangan, this.tanggal, this.waktuAwal, this.waktuAkhir})
       : super(key: key);
 
   @override
@@ -210,9 +207,9 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                                       SizedBox(
                                         height: 4,
                                       ),
-                                      Text(widget.waktu_awal +
+                                      Text(widget.waktuAwal +
                                           ' - ' +
-                                          widget.waktu_akhir),
+                                          widget.waktuAkhir),
                                     ],
                                   ),
                                 ],
@@ -285,8 +282,8 @@ class _KonfirmasiBookingState extends State<KonfirmasiBooking> {
                           bookingRuangan(
                               context,
                               widget.ruangan.id,
-                              widget.waktu_awal,
-                              widget.waktu_akhir,
+                              widget.waktuAwal,
+                              widget.waktuAkhir,
                               keperluan.text,
                               widget.tanggal);
                         },

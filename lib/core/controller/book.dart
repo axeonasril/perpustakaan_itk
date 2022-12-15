@@ -1,20 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
-import 'package:perpustakaan_itk/core/models/bookmark_models.dart';
-import 'package:perpustakaan_itk/core/models/kategori.dart';
-import 'package:perpustakaan_itk/core/models/show_buku.dart';
+import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<List<Book>> getBook(BuildContext context) async {
-  List<Book> book = [];
+Future<List<BookCover>> getBook(BuildContext context) async {
+  List<BookCover> book = [];
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
 
-    Response response = await dio.get(url_api + '/data-dokumen',
+    Response response = await dio.get(urlApi + '/data-dokumen',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
     if (response.data['data'] == null) {
@@ -27,7 +25,7 @@ Future<List<Book>> getBook(BuildContext context) async {
             );
           });
     } else {
-      response.data['data'].forEach((e) => book.add(Book.fromJson(e)));
+      response.data['data'].forEach((e) => book.add(BookCover.fromJson(e)));
     }
     print(response.data);
   } catch (e) {
@@ -36,15 +34,15 @@ Future<List<Book>> getBook(BuildContext context) async {
   return book;
 }
 
-Future<ShowBuku> showBook(BuildContext context, id) async {
-  ShowBuku book;
+Future<Book> showBook(BuildContext context, id) async {
+  Book book;
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
     print(id);
     Response response = await dio.get(
-      url_api + '/data-dokumen' + id.toString(),
+      urlApi + '/dokumen/' + id.toString(),
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),
@@ -62,7 +60,7 @@ Future<ShowBuku> showBook(BuildContext context, id) async {
             );
           });
     } else {
-      book = ShowBuku.fromJson(response.data['data']);
+      book = Book.fromJson(response.data['data']);
     }
   } catch (e) {
     print(e);
@@ -75,7 +73,7 @@ void pinjamBuku(context, id) async {
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/peminjaman-dokumen',
+      urlApi + '/peminjaman-dokumen',
       data: {
         'dokumen_id': id.toString(),
       },

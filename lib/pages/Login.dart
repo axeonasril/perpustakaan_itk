@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
                   setState(() {
                     loading = true;
                   });
-                  await login(email.text, password.text, context);
+                  login(email.text, password.text, context);
                   setState(() {
                     loading = false;
                   });
@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                       setState(() {
                         loading = true;
                       });
-                      await login(email.text, password.text, context);
+                      login(email.text, password.text, context);
                       setState(() {
                         loading = false;
                       });

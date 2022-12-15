@@ -1,18 +1,22 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/core/models/kategori.dart';
+import 'package:perpustakaan_itk/core/models/buku_pinjaman_model.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<List<Kategori>> getKategori(context) async {
-  List<Kategori> kategori = [];
+Future<List<BukuPinjamanModel>> getBook(BuildContext context) async {
+  List<BukuPinjamanModel> book = [];
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
-    Response response = await dio.get(urlApi + '/kategori',
-        options: Options(
-            headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
+    Response response = await dio.get(
+      urlApi + '/peminjaman-dokumen-aktif',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ' + prefs.getString('token'),
+        },
+      ),
+    );
     if (response.data['data'] == null) {
       showDialog(
           context: context,
@@ -23,12 +27,12 @@ Future<List<Kategori>> getKategori(context) async {
             );
           });
     } else {
-      response.data['data'].forEach((e) => print(e));
-      response.data['data'].forEach((e) => kategori.add(Kategori.fromJson(e)));
+      response.data['data']
+          .forEach((e) => book.add(BukuPinjamanModel.fromJson(e)));
     }
+    print(response.data);
   } catch (e) {
     print(e);
   }
-  print(kategori);
-  return kategori;
+  return book;
 }

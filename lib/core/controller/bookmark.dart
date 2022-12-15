@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/bookmark_models.dart';
-import 'package:perpustakaan_itk/core/models/kategori.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,7 +10,7 @@ Future<List<BookmarkModels>> getBookmarkList(BuildContext context) async {
   try {
     Dio dio = Dio();
     Response response = await dio.get(
-      url_api + '/bookmark',
+      urlApi + '/bookmark',
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),
@@ -41,14 +40,14 @@ Future<List<BookmarkModels>> getBookmarkList(BuildContext context) async {
   return bookmarklist;
 }
 
-void addBookmark(BuildContext context, dokumen_id) async {
+void addBookmark(BuildContext context, dokumenId) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/bookmark',
+      urlApi + '/bookmark',
       data: {
-        'dokumen_id': dokumen_id,
+        'dokumen_id': dokumenId,
       },
       options: Options(
         headers: {
@@ -84,8 +83,8 @@ void removeBookmark(BuildContext context, id) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
-    Response response = await dio.delete(
-      url_api + '/bookmark/' + id.toString(),
+     await dio.delete(
+      urlApi + '/bookmark/' + id.toString(),
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

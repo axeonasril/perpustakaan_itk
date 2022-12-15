@@ -7,20 +7,20 @@ import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<List<BookingRuangan>> getRuangan(
-    BuildContext context, tanggal, waktu_awal, waktu_akhir) async {
+    BuildContext context, tanggal, waktuAwal, waktuAkhir) async {
   List<BookingRuangan> ruangan = [];
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
     Response response = await dio.get(
-      url_api +
+      urlApi +
           '/ruang-kosong/' +
           tanggal +
           '/waktu_awal/' +
-          waktu_awal +
+          waktuAwal +
           '/waktu_akhir/' +
-          waktu_akhir,
+          waktuAkhir,
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),
@@ -50,17 +50,17 @@ Future<List<BookingRuangan>> getRuangan(
 }
 
 void bookingRuangan(
-    context, ruangan, waktu_awal, waktu_akhir, keperluan, tanggal) async {
+    context, ruangan, waktuAwal, waktuAkhir, keperluan, tanggal) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/peminjaman-ruangan',
+      urlApi + '/peminjaman-ruangan/',
       data: {
         "ruangan": ruangan,
-        "waktu_awal": waktu_awal,
-        "waktu_akhir": waktu_akhir,
+        "waktu_awal": waktuAwal,
+        "waktu_akhir": waktuAkhir,
         "keperluan": keperluan,
         "tanggal": tanggal.split(' ')[0],
       },
@@ -104,7 +104,7 @@ void bookingRuangan(
 //     Dio dio = Dio();
 //     print(id);
 //     Response response = await dio.get(
-//       url_api + '/ruangan' + id.toString(),
+//       urlApi + '/ruangan' + id.toString(),
 //       options: Options(
 //         headers: {
 //           'Authorization': 'Bearer ' + prefs.getString('token'),
@@ -135,7 +135,7 @@ void bookingRuangan(
 //   try {
 //     Dio dio = Dio();
 //     Response response = await dio.post(
-//       url_api + '/ruangan',
+//       urlApi + '/ruangan',
 //       data: {
 //         'dokumen_id': id.toString(),
 //       },

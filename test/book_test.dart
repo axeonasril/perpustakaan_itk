@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,7 +10,7 @@ void main() {
 
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/login',
+      urlApi + '/login',
       data: {'email': 'admin@gmail.com', 'password': '123123123'},
     );
     if (response.data['data'] == null) {
@@ -19,7 +18,7 @@ void main() {
     } else {
       prefs.setString('token', response.data['data']['token'].toString());
     }
-    await dio.get(url_api + '/dokumen',
+    await dio.get(urlApi + '/dokumen',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
 
@@ -31,8 +30,8 @@ void main() {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     Dio dio = Dio();
-    Response response = await dio.post(
-      url_api + '/peminjaman-dokumen',
+     await dio.post(
+      urlApi + '/peminjaman-dokumen',
       data: {
         'dokumen_id': 1,
       },

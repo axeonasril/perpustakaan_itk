@@ -1,14 +1,9 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import "package:flutter_feather_icons/flutter_feather_icons.dart";
 import 'package:perpustakaan_itk/pages/bookmark.dart';
-import 'package:perpustakaan_itk/widgets/bottom_navbar.dart';
 import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
 import 'package:perpustakaan_itk/widgets/carousel.dart';
 import 'package:perpustakaan_itk/widgets/rekomendasi.dart';
-import 'package:perpustakaan_itk/widgets/terakhir_dibaca.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -88,7 +83,7 @@ class _HomeState extends State<Home> {
                     SizedBox(
                       height: 5,
                     ),
-                    TerakhirDibaca(),
+                    // TerakhirDibaca(),
                     SizedBox(
                       height: 25,
                     ),

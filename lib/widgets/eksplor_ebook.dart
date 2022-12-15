@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
-import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/core/controller/kategori.dart'
     as kategoriController;
 
@@ -67,15 +66,14 @@ class _EksplorEbookState extends State<EksplorEbook> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.network(
-                        dataKategori[index].berkas ??
-                            'https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg',
+                      Image.asset(
+                        'assets/buku2.png',
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(
-                        height: 7,
+                        height: 10,
                       ),
                       Text(
                         dataKategori[index].namaKategori,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/bookmark.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/bookmark_models.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
@@ -81,7 +80,8 @@ class _BookmarkState extends State<Bookmark> {
                                         child: Row(
                                           children: [
                                             Image.network(
-                                              snapshot.data[index].gambarDokumen,
+                                              snapshot
+                                                  .data[index].gambarDokumen,
                                               height: 65,
                                               width: 60,
                                             ),

@@ -1,9 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/core/controller/book.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
+import 'package:perpustakaan_itk/core/models/book_cover.dart' as model;
 
 class BookCover extends StatelessWidget {
-  Book book;
+  model.BookCover book;
   BookCover({
     Key key,
     this.book,

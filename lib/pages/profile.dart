@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/auth.dart';
 import 'package:perpustakaan_itk/core/models/user.dart';
-import 'package:perpustakaan_itk/pages/login.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

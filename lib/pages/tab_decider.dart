@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:perpustakaan_itk/pages/home.dart';
 import 'package:perpustakaan_itk/pages/buku_saya.dart';
-import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/pages/explore.dart';
 import 'package:perpustakaan_itk/pages/profile.dart';
 import 'package:perpustakaan_itk/pages/scan.dart';

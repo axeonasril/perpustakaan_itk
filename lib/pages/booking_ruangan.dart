@@ -329,8 +329,8 @@ class _BookingRuanganState extends State<BookingRuangan> {
                     cariRuangan == true
                         ? HasilRuangan(
                             tanggal: selectedDate.toString(),
-                            waktu_awal: awaltime.toString(),
-                            waktu_akhir: akhirtime.toString(),
+                            waktuAwal: awaltime.toString(),
+                            waktuAkhir: akhirtime.toString(),
                           )
                         : Container(),
                   ],

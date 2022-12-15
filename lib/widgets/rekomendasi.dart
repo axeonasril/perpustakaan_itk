@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/controller/book.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
+import 'package:perpustakaan_itk/core/models/book_cover.dart' as model;
 import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/widgets/book_cover.dart';
 
@@ -16,8 +16,7 @@ class Rekomendasi extends StatefulWidget {
 class _RekomendasiState extends State<Rekomendasi> {
   @override
   Widget build(BuildContext context) {
-    Book book;
-    final Future<List<Book>> bookList = getBook(context);
+    final Future<List<model.BookCover>> bookList = getBook(context);
     print(bookList);
     return Container(
       height: 200,
@@ -35,10 +34,10 @@ class _RekomendasiState extends State<Rekomendasi> {
             height: 15,
           ),
           Expanded(
-            child: FutureBuilder<List<Book>>(
+            child: FutureBuilder<List<model.BookCover>>(
               future: getBook(context),
-              builder:
-                  (BuildContext context, AsyncSnapshot<List<Book>> snapshot) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<model.BookCover>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
                     child: Text('Please wait its loading...'),

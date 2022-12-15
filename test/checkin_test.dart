@@ -8,7 +8,7 @@ void main() {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/checkin-pengunjung',
+      urlApi + '/checkin-pengunjung',
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

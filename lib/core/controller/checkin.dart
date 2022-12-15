@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/pages/tab_decider.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -10,7 +8,7 @@ void checkin(context) async {
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/checkin-pengunjung',
+      urlApi + '/checkin-pengunjung',
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

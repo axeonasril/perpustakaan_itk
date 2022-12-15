@@ -6,9 +6,9 @@ import 'konfirmasi_booking.dart';
 
 class HasilRuangan extends StatefulWidget {
   final String tanggal;
-  final String waktu_awal;
-  final String waktu_akhir;
-  const HasilRuangan({Key key, this.tanggal, this.waktu_awal, this.waktu_akhir})
+  final String waktuAwal;
+  final String waktuAkhir;
+  const HasilRuangan({Key key, this.tanggal, this.waktuAwal, this.waktuAkhir})
       : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class _HasilRuanganState extends State<HasilRuangan> {
   Widget build(BuildContext context) {
     return FutureBuilder<List<BookingRuangan>>(
         future: getRuangan(context, widget.tanggal.split(' ')[0],
-            widget.waktu_awal, widget.waktu_akhir),
+            widget.waktuAwal, widget.waktuAkhir),
         builder: (context, snapshot) {
           return snapshot.data == null
               ? Container()
@@ -127,10 +127,10 @@ class _HasilRuanganState extends State<HasilRuangan> {
                                                                 .data[index],
                                                             tanggal:
                                                                 widget.tanggal,
-                                                            waktu_awal: widget
-                                                                .waktu_awal,
-                                                            waktu_akhir: widget
-                                                                .waktu_akhir,
+                                                            waktuAwal: widget
+                                                                .waktuAwal,
+                                                            waktuAkhir: widget
+                                                                .waktuAkhir,
                                                           );
                                                         },
                                                       ),

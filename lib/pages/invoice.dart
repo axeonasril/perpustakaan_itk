@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:perpustakaan_itk/core/models/invoice.dart' as model;
+import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
 class Invoice extends StatefulWidget {
   final model.Invoice invoice;
@@ -20,6 +19,16 @@ class _InvoiceState extends State<Invoice> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: BackButton(
+          onPressed: (() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return TabDecider();
+                },
+              ),
+            );
+          }),
           color: Colors.white,
         ),
         centerTitle: true,

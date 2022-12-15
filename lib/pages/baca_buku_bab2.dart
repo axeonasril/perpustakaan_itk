@@ -5,18 +5,17 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:perpustakaan_itk/core/models/book.dart';
-import 'package:perpustakaan_itk/pages/baca_buku_bab1.dart';
 
-class BacaBuku extends StatefulWidget {
+class BacaBukuBab2 extends StatefulWidget {
   final Book book;
   final String url;
-  const BacaBuku({Key key, this.book, this.url}) : super(key: key);
+  const BacaBukuBab2({Key key, this.book, this.url}) : super(key: key);
 
   @override
-  State<BacaBuku> createState() => _BacaBukuState();
+  State<BacaBukuBab2> createState() => _BacaBukuBab2State();
 }
 
-class _BacaBukuState extends State<BacaBuku> {
+class _BacaBukuBab2State extends State<BacaBukuBab2> {
   String urlPDFPath = "";
   bool exists = true;
   int _totalPages = 0;
@@ -45,8 +44,8 @@ class _BacaBukuState extends State<BacaBuku> {
 
   @override
   void initState() {
-    getFileFromUrl("https://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/" +
-            widget.url.toString(),)
+    getFileFromUrl("http://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/" +
+            widget.url.toString())
         .then(
       (value) => {
         setState(() {
@@ -74,9 +73,9 @@ class _BacaBukuState extends State<BacaBuku> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                    return BacaBukuBab1(
+                    return BacaBukuBab2(
                       book: widget.book,
-                      url: widget.book.bab1,
+                      url: widget.book.bab2,
                     );
                   }));
                 },

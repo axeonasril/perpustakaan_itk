@@ -10,7 +10,7 @@ void main() {
 
     Dio dio = Dio();
     Response response = await dio.get(
-      url_api + '/bookmark',
+      urlApi + '/bookmark',
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

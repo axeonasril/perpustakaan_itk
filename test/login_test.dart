@@ -1,10 +1,6 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:perpustakaan_itk/core/controller/auth.dart';
-import 'package:perpustakaan_itk/core/models/user.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,7 +10,7 @@ void main() {
 
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/login',
+      urlApi + '/login',
       data: {'email': 'admin@gmail.com', 'password': '123123123'},
     );
     if (response.data['data'] == null) {
@@ -31,7 +27,7 @@ void main() {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/checkin-pengunjung',
+      urlApi + '/checkin-pengunjung',
       options: Options(
         headers: {
           'Authorization': 'Bearer ' + prefs.getString('token'),

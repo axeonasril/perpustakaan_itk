@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:perpustakaan_itk/core/models/user.dart';
 import 'package:perpustakaan_itk/pages/login.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
@@ -14,7 +13,7 @@ void login(email, password, context) async {
     
     Dio dio = Dio();
     Response response = await dio.post(
-      url_api + '/login',
+      urlApi + '/login',
       data: {'email': email, 'password': password},
     );
 
