@@ -63,6 +63,9 @@ class _DetailBukuState extends State<DetailBuku> {
           FutureBuilder<Book>(
               future: showBook(context, widget.detailBuku.id),
               builder: (context, snapshot) {
+                if (snapshot.data != null) {
+                  isPinjamBuku = snapshot.data.isPinjam;
+                }
                 return snapshot.data == null
                     ? Center(child: CircularProgressIndicator())
                     : Stack(

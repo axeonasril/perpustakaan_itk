@@ -4,8 +4,8 @@ import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  test('Show Book', () async {
-    bool isBookExist = false;
+  test('Buku yang sedang dipinjam', () async {
+    bool isDokumenExist = false;
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     Dio dio = Dio();
@@ -18,28 +18,12 @@ void main() {
     } else {
       prefs.setString('token', response.data['data']['token'].toString());
     }
-    await dio.get(urlApi + '/data-dokumen',
+    await dio.get(urlApi + '/peminjaman-dokumen-aktif',
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
 
-    isBookExist = true;
+    isDokumenExist = true;
 
-    expect(isBookExist, true);
-  });
-  test('Pinjam Buku dan dokumen', () async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    Dio dio = Dio();
-     await dio.post(
-      urlApi + '/peminjaman-dokumen',
-      data: {
-        'dokumen_id': 1,
-      },
-      options: Options(
-        headers: {
-          'Authorization': 'Bearer ' + prefs.getString('token'),
-        },
-      ),
-    );
+    expect(isDokumenExist, true);
   });
 }

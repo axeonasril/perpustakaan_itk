@@ -98,8 +98,8 @@ void pinjamBuku(context, id) async {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Berhasil Dipinjam'),
-              content: Text('Buku Telah Dipinjam'),
+              title: Text('Berhasil!'),
+              content: Text('Buku Berhasil Dipinjam'),
             );
           });
     }

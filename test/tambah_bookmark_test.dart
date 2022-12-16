@@ -9,6 +9,7 @@ void main() {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     Dio dio = Dio();
+    var bookmarklist = [];
     Response response = await dio.get(
       urlApi + '/bookmark',
       options: Options(
@@ -20,10 +21,10 @@ void main() {
     if (response.data['data'] == null) {
       print('error');
     } else {
-      var bookmarklist;
+      
       response.data['data']
           .forEach((e) => bookmarklist.add(BookmarkModels.fromJson(e)));
     }
-    expect(response.data['data'] != null, true);
+    expect(bookmarklist != null, true);
   });
 }
