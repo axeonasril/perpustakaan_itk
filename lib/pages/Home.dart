@@ -55,8 +55,8 @@ class _HomeState extends State<Home> {
                     color: Colors.white,
                   ),
                 ),
-                FutureBuilder<bool>(
-                    future: cekNotifikasi(context),
+                StreamBuilder<bool>(
+                    stream: cekNotifikasi(context),
                     builder: (context, snapshot) {
                       return Positioned(
                         top: 0,

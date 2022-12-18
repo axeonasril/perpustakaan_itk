@@ -32,8 +32,8 @@ Future<List<Notifikasi>> getNotifikasi(context) async {
   return notifikasi;
 }
 
-Future<bool> cekNotifikasi(context) async {
-  bool adaNotif = false;
+Stream<bool> cekNotifikasi(context) async* {
+  bool adaNotif;
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
@@ -55,7 +55,7 @@ Future<bool> cekNotifikasi(context) async {
   } catch (e) {
     print(e);
   }
-  return adaNotif;
+  yield adaNotif;
 }
 
 void bacaNotifikasi() async {

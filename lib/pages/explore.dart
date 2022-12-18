@@ -89,17 +89,17 @@ class _ExploreState extends State<Explore> {
                             itemBuilder: (context, index) {
                               return InkWell(
                                 onTap: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (BuildContext context) => DetailBuku(
-                                  //       detailBuku: BookCover.fromJson(
-                                  //           snapshot.data[index].dokumen.toJson()),
-                                  //     ),
-                                  //   ),
-                                  // ).then(
-                                  //   (_) => setState(() {}),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          DetailBuku(
+                                        detailBuku: snapshot.data[index],
+                                      ),
+                                    ),
+                                  ).then(
+                                    (_) => setState(() {}),
+                                  );
                                 },
                                 child: Container(
                                   margin: EdgeInsets.symmetric(
