@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perpustakaan_itk/core/controller/notifikasi_controller.dart';
+import 'package:perpustakaan_itk/core/models/notifikasi.dart';
 import 'package:perpustakaan_itk/pages/bookmark.dart';
+import 'package:perpustakaan_itk/pages/notification.dart';
 import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
 import 'package:perpustakaan_itk/widgets/carousel.dart';
 import 'package:perpustakaan_itk/widgets/rekomendasi.dart';
@@ -34,9 +37,44 @@ class _HomeState extends State<Home> {
           SizedBox(
             width: 5,
           ),
-          Icon(
-            Icons.notifications_outlined,
-            color: Colors.white,
+          Center(
+            child: Stack(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => NotificationPage(),
+                      ),
+                    ).then((value) => setState(() {}));
+                    bacaNotifikasi();
+                  },
+                  child: Icon(
+                    Icons.notifications_outlined,
+                    color: Colors.white,
+                  ),
+                ),
+                FutureBuilder<bool>(
+                    future: cekNotifikasi(context),
+                    builder: (context, snapshot) {
+                      return Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          height: 10,
+                          width: 10,
+                          decoration: BoxDecoration(
+                            color: snapshot.data == false
+                                ? Colors.transparent
+                                : Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      );
+                    })
+              ],
+            ),
           ),
           SizedBox(
             width: 20,
