@@ -89,7 +89,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                 height: 40,
                               ),
                               Image.network(
-                                widget.detailBuku.gambarDokumen,
+                                snapshot.data.gambarDokumen ??
+                                    'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
                                 height: 120,
                                 width: 100,
                                 fit: BoxFit.cover,
@@ -98,7 +99,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 height: 25,
                               ),
                               Text(
-                                widget.detailBuku.judul,
+                                snapshot.data.judul.toString(),
                                 style: GoogleFonts.openSans(
                                   color: Color(0xff222149),
                                   fontSize: 20,
@@ -110,7 +111,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                 height: 10,
                               ),
                               Text(
-                                'Oleh ' + widget.detailBuku.namaPengarang,
+                                'Oleh ' +
+                                    snapshot.data.namaPengarang.toString(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 15,
@@ -149,8 +151,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                             color: Color(0xff939393),
                                           ),
                                         ),
-                                        Text(
-                                            snapshot.data.kategori.namaKategori)
+                                        Text(snapshot.data.kategori.namaKategori
+                                            .toString())
                                       ],
                                     ),
                                     Column(
@@ -163,7 +165,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                             color: Color(0xff939393),
                                           ),
                                         ),
-                                        Text(widget.detailBuku.tahunTerbit)
+                                        Text(snapshot.data.tahunTerbit
+                                            .toString())
                                       ],
                                     ),
                                     Column(
@@ -176,7 +179,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                             color: Color(0xff939393),
                                           ),
                                         ),
-                                        Text(widget.detailBuku.tahunTerbit)
+                                        Text(snapshot.data.tahunTerbit
+                                            .toString())
                                       ],
                                     ),
                                   ],
