@@ -66,10 +66,6 @@ class _ExploreState extends State<Explore> {
               ? Column(
                   children: [
                     SizedBox(
-                      height: 31,
-                    ),
-                    EksplorKategori(),
-                    SizedBox(
                       height: 30,
                     ),
                     EksplorEbook(),

@@ -32,18 +32,6 @@ class _EksplorEbookState extends State<EksplorEbook> {
       child: (Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: () {
-              getDataKategori();
-            },
-            child: Text(
-              'E-BOOK',
-              style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15),
             child: GridView.builder(
