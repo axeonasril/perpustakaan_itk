@@ -6,7 +6,8 @@ import 'package:perpustakaan_itk/pages/tab_decider.dart';
 
 class Invoice extends StatefulWidget {
   final model.Invoice invoice;
-  const Invoice({Key key, this.invoice}) : super(key: key);
+  final bool riwayat;
+  const Invoice({Key key, this.invoice, this.riwayat}) : super(key: key);
 
   @override
   State<Invoice> createState() => _InvoiceState();
@@ -83,41 +84,44 @@ class _InvoiceState extends State<Invoice> {
                     ),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.check_circle_sharp,
-                              size: 50,
-                              color: Color(0xff42F67F),
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Booking Berhasil!',
-                                  style: TextStyle(
+                        widget.riwayat == true
+                            ? Container()
+                            : Row(
+                                children: [
+                                  Icon(
+                                    Icons.check_circle_sharp,
+                                    size: 50,
                                     color: Color(0xff42F67F),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 1,
-                                ),
-                                Text(
-                                  'Mohon tunggu konfirmasi selanjutnya',
-                                  style: TextStyle(
-                                    color: Color(0xff939393),
-                                    fontWeight: FontWeight.w400,
+                                  SizedBox(
+                                    width: 15,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Booking Berhasil!',
+                                        style: TextStyle(
+                                          color: Color(0xff42F67F),
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 1,
+                                      ),
+                                      Text(
+                                        'Mohon tunggu konfirmasi selanjutnya',
+                                        style: TextStyle(
+                                          color: Color(0xff939393),
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                         SizedBox(
                           height: 20,
                         ),
@@ -242,7 +246,7 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    widget.invoice.status.toString(),
+                                    widget.invoice.status ?? 'Pending',
                                     style: TextStyle(
                                         color: Color(0xffE0AA1D),
                                         fontWeight: FontWeight.w500),

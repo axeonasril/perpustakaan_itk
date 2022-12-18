@@ -49,6 +49,42 @@ Future<List<BookingRuangan>> getRuangan(
   return ruangan;
 }
 
+Future<List<model.Invoice>> getRuanganPinjaman(BuildContext context) async {
+  List<model.Invoice> ruangan = [];
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  try {
+    Dio dio = Dio();
+    Response response = await dio.get(
+      urlApi + '/peminjaman-ruangan?filter=riwayat',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ' + prefs.getString('token'),
+        },
+      ),
+    );
+    if (response.data['data'] == null) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Gagal load'),
+              content: Text('Ruangan kosong'),
+            );
+          });
+    } else {
+      response.data['data'].forEach(
+        (e) => ruangan.add(
+          model.Invoice.fromJson(e),
+        ),
+      );
+    }
+  } catch (e) {
+    print(e);
+  }
+  return ruangan;
+}
+
 void bookingRuangan(
     context, ruangan, waktuAwal, waktuAkhir, keperluan, tanggal) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -56,7 +92,7 @@ void bookingRuangan(
   try {
     Dio dio = Dio();
     Response response = await dio.post(
-      urlApi + '/peminjaman-ruangan/',
+      urlApi + '/peminjaman-ruangan',
       data: {
         "ruangan": ruangan,
         "waktu_awal": waktuAwal,
