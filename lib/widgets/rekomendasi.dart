@@ -16,7 +16,7 @@ class Rekomendasi extends StatefulWidget {
 class _RekomendasiState extends State<Rekomendasi> {
   @override
   Widget build(BuildContext context) {
-    final Future<List<model.BookCover>> bookList = getBook(context);
+    final Future<List<model.BookCover>> bookList = getBookRekomendasi(context);
     print(bookList);
     return Container(
       height: 200,
@@ -35,7 +35,7 @@ class _RekomendasiState extends State<Rekomendasi> {
           ),
           Expanded(
             child: FutureBuilder<List<model.BookCover>>(
-              future: getBook(context),
+              future: getBookRekomendasi(context),
               builder: (BuildContext context,
                   AsyncSnapshot<List<model.BookCover>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
 import 'package:perpustakaan_itk/core/controller/kategori.dart'
     as kategoriController;
+import 'package:perpustakaan_itk/pages/detail_book_kategori.dart';
 
 class EksplorEbook extends StatefulWidget {
   const EksplorEbook({Key key}) : super(key: key);
@@ -31,18 +32,6 @@ class _EksplorEbookState extends State<EksplorEbook> {
       child: (Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: () {
-              getDataKategori();
-            },
-            child: Text(
-              'E-BOOK',
-              style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15),
             child: GridView.builder(
@@ -54,14 +43,15 @@ class _EksplorEbookState extends State<EksplorEbook> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (BuildContext context) => DetailBuku(
-                    //       detailBuku: dataKategori[index],
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            DetailBookKategoriPage(
+                          id: dataKategori[index].id.toString(),
+                        ),
+                      ),
+                    );
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
