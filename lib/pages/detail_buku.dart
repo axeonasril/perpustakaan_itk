@@ -300,86 +300,96 @@ class _DetailBukuState extends State<DetailBuku> {
                                   ],
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () async {
-                                        if (isPinjamBuku == false) {
-                                          pinjamBuku(
-                                              context, widget.detailBuku.id);
-                                          setState(
-                                            () {
-                                              isPinjamBuku = true;
-                                            },
-                                          );
-                                        } else {
-                                          Navigator.push(context,
-                                              MaterialPageRoute(builder:
-                                                  (BuildContext context) {
-                                            return BacaBuku(
-                                              book: snapshot.data,
-                                              url: snapshot.data.kataPengantar,
+                              SizedBox(
+                                height: 12,
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 20),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: GestureDetector(
+                                        onTap: () async {
+                                          if (isPinjamBuku == false) {
+                                            pinjamBuku(
+                                                context, widget.detailBuku.id);
+                                            setState(
+                                              () {
+                                                isPinjamBuku = true;
+                                              },
                                             );
-                                          }));
-                                        }
-                                      },
-                                      child: Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 50),
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 15, horizontal: 15),
-                                        decoration: BoxDecoration(
-                                            color: Color(0xff6759ff),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: Center(
-                                          child: isPinjamBuku == false
-                                              ? Text(
-                                                  'Pinjam Buku',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                                )
-                                              : Text(
-                                                  'Baca Buku',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                                ),
+                                          } else {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder:
+                                                    (BuildContext context) {
+                                              return BacaBuku(
+                                                book: snapshot.data,
+                                                url:
+                                                    snapshot.data.kataPengantar,
+                                              );
+                                            }));
+                                          }
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 15, horizontal: 15),
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff6759ff),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Center(
+                                            child: isPinjamBuku == false
+                                                ? Text(
+                                                    'Pinjam Buku',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  )
+                                                : Text(
+                                                    'Baca Buku',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      addBookmark(
-                                          context, widget.detailBuku.id);
-                                      setState(() {
-                                        bookmarkAdded = !bookmarkAdded;
-                                      });
-                                    },
-                                    child: Container(
-                                        margin: EdgeInsets.only(right: 50),
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 10, horizontal: 15),
-                                        decoration: BoxDecoration(
-                                            color: Color(0xff6759ff),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: Icon(
-                                          bookmarkAdded == true
-                                              ? Icons.bookmark
-                                              : Icons.bookmark_outline,
-                                          color: Colors.white,
-                                        )),
-                                  ),
-                                ],
-                              )
+                                    SizedBox(
+                                      width: 12,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        addBookmark(
+                                            context, widget.detailBuku.id);
+                                        setState(() {
+                                          bookmarkAdded = !bookmarkAdded;
+                                        });
+                                      },
+                                      child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 14, horizontal: 15),
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff6759ff),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Icon(
+                                            bookmarkAdded == true
+                                                ? Icons.bookmark
+                                                : Icons.bookmark_outline,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
                             ],
                           ),
                         ],
