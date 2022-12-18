@@ -68,6 +68,37 @@ Future<Book> showBook(BuildContext context, id) async {
   return book;
 }
 
+Future<List<Book>> getBookByKategori(
+    BuildContext context, String namaKategori) async {
+  List<Book> book = [];
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  try {
+    Dio dio = Dio();
+
+    Response response = await dio.get(
+        urlApi + '/dokumen?kategori=' + namaKategori.toString(),
+        options: Options(
+            headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
+    if (response.data['data'] == null) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Gagal load'),
+              content: Text('Kategori kosong'),
+            );
+          });
+    } else {
+      response.data['data'].forEach((e) => book.add(Book.fromJson(e)));
+    }
+    print(response.data);
+  } catch (e) {
+    print(e);
+  }
+  return book;
+}
+
 void pinjamBuku(context, id) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/core/models/kategori.dart';
 import 'package:perpustakaan_itk/core/controller/kategori.dart'
     as kategoriController;
+import 'package:perpustakaan_itk/pages/detail_book_kategori.dart';
 
 class EksplorEbook extends StatefulWidget {
   const EksplorEbook({Key key}) : super(key: key);
@@ -54,14 +55,15 @@ class _EksplorEbookState extends State<EksplorEbook> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (BuildContext context) => DetailBuku(
-                    //       detailBuku: dataKategori[index],
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            DetailBookKategoriPage(
+                          namaKategori: dataKategori[index].namaKategori,
+                        ),
+                      ),
+                    );
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
