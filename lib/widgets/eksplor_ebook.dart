@@ -60,7 +60,7 @@ class _EksplorEbookState extends State<EksplorEbook> {
                       MaterialPageRoute(
                         builder: (BuildContext context) =>
                             DetailBookKategoriPage(
-                          namaKategori: dataKategori[index].namaKategori,
+                          id: dataKategori[index].id.toString(),
                         ),
                       ),
                     );

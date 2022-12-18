@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/book.dart';
 import 'package:perpustakaan_itk/core/models/book.dart';
+import 'package:perpustakaan_itk/core/models/book_cover.dart';
+import 'package:perpustakaan_itk/pages/detail_buku.dart';
 
 class DetailBookKategoriPage extends StatefulWidget {
-  final String namaKategori;
-  const DetailBookKategoriPage({Key key, this.namaKategori}) : super(key: key);
+  final String id;
+  const DetailBookKategoriPage({Key key, this.id}) : super(key: key);
 
   @override
   State<DetailBookKategoriPage> createState() => _DetailBookKategoriPageState();
@@ -31,9 +33,10 @@ class _DetailBookKategoriPageState extends State<DetailBookKategoriPage> {
           ),
         ),
       ),
-      body: FutureBuilder<List<Book>>(
-          future: getBookByKategori(context, widget.namaKategori),
-          builder: (BuildContext context, AsyncSnapshot<List<Book>> snapshot) {
+      body: FutureBuilder<List<BookCover>>(
+          future: getBookByKategori(context, widget.id),
+          builder:
+              (BuildContext context, AsyncSnapshot<List<BookCover>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: Text('Please wait its loading...'));
             } else {
@@ -43,8 +46,19 @@ class _DetailBookKategoriPageState extends State<DetailBookKategoriPage> {
                 physics: BouncingScrollPhysics(),
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {},
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => DetailBuku(
+                            detailBuku: snapshot.data[index],
+                          ),
+                        ),
+                      ).then(
+                        (_) => setState(() {}),
+                      );
+                    },
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(vertical: 15, horizontal: 15),

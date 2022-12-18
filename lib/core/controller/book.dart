@@ -68,16 +68,16 @@ Future<Book> showBook(BuildContext context, id) async {
   return book;
 }
 
-Future<List<Book>> getBookByKategori(
-    BuildContext context, String namaKategori) async {
-  List<Book> book = [];
+Future<List<BookCover>> getBookByKategori(
+    BuildContext context, String id) async {
+  List<BookCover> book = [];
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   try {
     Dio dio = Dio();
 
     Response response = await dio.get(
-        urlApi + '/dokumen?kategori=' + namaKategori.toString(),
+        urlApi + '/data-dokumen?kategori=' + id.toString(),
         options: Options(
             headers: {'Authorization': 'Bearer ' + prefs.getString('token')}));
     if (response.data['data'] == null) {
@@ -90,7 +90,7 @@ Future<List<Book>> getBookByKategori(
             );
           });
     } else {
-      response.data['data'].forEach((e) => book.add(Book.fromJson(e)));
+      response.data['data'].forEach((e) => book.add(BookCover.fromJson(e)));
     }
     print(response.data);
   } catch (e) {
