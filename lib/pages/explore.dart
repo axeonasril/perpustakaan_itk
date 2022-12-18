@@ -68,11 +68,11 @@ class _ExploreState extends State<Explore> {
                     SizedBox(
                       height: 30,
                     ),
-                    EksplorEbook(),
-                    SizedBox(
-                      height: 30,
-                    ),
                     EksplorRuangan(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    EksplorEbook(),
                   ],
                 )
               : FutureBuilder<List<BookCover>>(
@@ -81,6 +81,8 @@ class _ExploreState extends State<Explore> {
                     return snapshot.data == null
                         ? Container()
                         : ListView.builder(
+                            keyboardDismissBehavior:
+                                ScrollViewKeyboardDismissBehavior.onDrag,
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: snapshot.data.length,
