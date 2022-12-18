@@ -12,19 +12,14 @@ class RuanganSaya extends StatefulWidget {
   State<RuanganSaya> createState() => _RuanganSayaState();
 }
 
-class _RuanganSayaState extends State<RuanganSaya>
-    with SingleTickerProviderStateMixin {
-  TabController controller;
-
+class _RuanganSayaState extends State<RuanganSaya> {
   @override
   void initState() {
-    controller = new TabController(vsync: this, length: 2);
     super.initState();
   }
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
@@ -55,25 +50,8 @@ class _RuanganSayaState extends State<RuanganSaya>
             fontWeight: FontWeight.w800,
           ),
         ),
-        bottom: new TabBar(
-          controller: controller,
-          tabs: <Widget>[
-            new Tab(
-              text: "Ruangan Pinjaman",
-            ),
-            new Tab(
-              text: "Riwayat Pinjaman",
-            ),
-          ],
-        ),
       ),
-      body: new TabBarView(
-        controller: controller,
-        children: <Widget>[
-          RuanganPinjaman(),
-          RiwayatPinjamanRuangan(),
-        ],
-      ),
+      body: RuanganPinjaman(),
     );
   }
 }
