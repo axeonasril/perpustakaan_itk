@@ -27,49 +27,55 @@ class _RiwayatPinjamanState extends State<RiwayatPinjaman> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(15),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/buku4.png',
-                          height: 65,
-                          width: 60,
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'MENGENAL RASULULLAH LEBIH DEKAT',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w800, fontSize: 12),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/buku4.png',
+                            height: 65,
+                            width: 60,
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'MENGENAL RASULULLAH LEBIH DEKAT',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 12),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text(
+                                  'Oleh Imam At-Tirmidzi',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 12,
+                                      color: Color(0xff696969)),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  'Dipinjam 01 April 2022',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 12,
+                                      color: Color(0xff696969)),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              'Oleh Imam At-Tirmidzi',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 12,
-                                  color: Color(0xff696969)),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'Dipinjam 01 April 2022',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 12,
-                                  color: Color(0xff696969)),
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   IconButton(
