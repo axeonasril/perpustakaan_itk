@@ -45,9 +45,10 @@ class _BacaBukuState extends State<BacaBuku> {
 
   @override
   void initState() {
-    getFileFromUrl("https://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/" +
-            widget.url.toString(),)
-        .then(
+    getFileFromUrl(
+      "https://digilib.itk.ac.id/Lumen-PerpustakaanITK/public/" +
+          widget.url.toString(),
+    ).then(
       (value) => {
         setState(() {
           if (value != null) {
@@ -69,6 +70,7 @@ class _BacaBukuState extends State<BacaBuku> {
     if (loaded) {
       return Scaffold(
         appBar: AppBar(
+          title: Text('Abstrak'),
           actions: [
             IconButton(
                 onPressed: () {
@@ -150,7 +152,7 @@ class _BacaBukuState extends State<BacaBuku> {
         //Replace with your loading UI
         return Scaffold(
           appBar: AppBar(
-            title: Text("Demo"),
+            title: Text("Loading.."),
           ),
           body: Text(
             "Loading..",
@@ -161,7 +163,7 @@ class _BacaBukuState extends State<BacaBuku> {
         //Replace Error UI
         return Scaffold(
           appBar: AppBar(
-            title: Text("Demo"),
+            title: Text("Loading.."),
           ),
           body: Text(
             "PDF Not Available",

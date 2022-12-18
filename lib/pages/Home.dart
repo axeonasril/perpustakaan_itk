@@ -126,6 +126,10 @@ class _HomeState extends State<Home> {
                       height: 25,
                     ),
                     BukuTerbaru(),
+
+                    SizedBox(
+                      height: 30,
+                    ),
                   ],
                 ),
               ),

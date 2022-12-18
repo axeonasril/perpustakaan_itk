@@ -68,6 +68,7 @@ class _BacaBukuBab2State extends State<BacaBukuBab2> {
     if (loaded) {
       return Scaffold(
         appBar: AppBar(
+          title: Text('Bab 2'),
           actions: [
             IconButton(
                 onPressed: () {
@@ -149,7 +150,7 @@ class _BacaBukuBab2State extends State<BacaBukuBab2> {
         //Replace with your loading UI
         return Scaffold(
           appBar: AppBar(
-            title: Text("Demo"),
+            title: Text("Loading.."),
           ),
           body: Text(
             "Loading..",
@@ -160,7 +161,7 @@ class _BacaBukuBab2State extends State<BacaBukuBab2> {
         //Replace Error UI
         return Scaffold(
           appBar: AppBar(
-            title: Text("Demo"),
+            title: Text("Loading.."),
           ),
           body: Text(
             "PDF Not Available",
