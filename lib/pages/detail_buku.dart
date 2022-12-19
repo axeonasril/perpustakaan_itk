@@ -6,6 +6,8 @@ import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/pages/baca_buku.dart';
 import 'package:flutter/gestures.dart';
+import 'package:perpustakaan_itk/widgets/buku_lainnya.dart';
+import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
 
 class DetailBuku extends StatefulWidget {
   final BookCover detailBuku;
@@ -124,7 +126,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                 height: 10,
                               ),
                               Text(
-                                'Jurusan ' + (snapshot.data.jurusan ?? '-'),
+                                (snapshot.data.jurusan ?? '-'),
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
@@ -257,50 +259,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text(
-                                      'Another Book',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 17,
-                                        color: Color(0xff222149),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    SizedBox(
-                                      height: 140,
-                                      child: ListView.builder(
-                                        physics: BouncingScrollPhysics(),
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: 4,
-                                        itemBuilder: (context, index) {
-                                          return Container(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Image.asset(
-                                                  'assets/buku8.png',
-                                                  height: 100,
-                                                  width: 100,
-                                                ),
-                                                SizedBox(
-                                                  height: 7,
-                                                ),
-                                                Text(
-                                                  'Judul Buku',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 15),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
+                                    BukuLainnya(),
                                   ],
                                 ),
                               ),
