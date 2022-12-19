@@ -328,7 +328,9 @@ class _DetailBukuState extends State<DetailBuku> {
                                                     (BuildContext context) {
                                               return BacaBuku(
                                                 book: snapshot.data,
-                                                url: snapshot.data.abstractId,
+                                                url: snapshot
+                                                    .data.fullDokumen['file']
+                                                    .toString(),
                                               );
                                             }));
                                           }

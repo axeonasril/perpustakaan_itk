@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:perpustakaan_itk/core/models/book.dart';
@@ -70,27 +71,27 @@ class _BacaBukuState extends State<BacaBuku> {
     if (loaded) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Abstrak'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return BacaBukuBab1(
-                      book: widget.book,
-                      url: widget.book.bab1,
-                    );
-                  }));
-                },
-                icon: Icon(Icons.send))
-          ],
+          leading: BackButton(
+            color: Colors.white,
+          ),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Color(0xff6759FF),
+          title: Text(
+            'BACA BUKU',
+            style: GoogleFonts.openSans(
+              color: Color(0xffFFFFFF),
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
         ),
         body: PDFView(
           filePath: urlPDFPath,
           autoSpacing: true,
           enableSwipe: true,
           pageSnap: true,
-          swipeHorizontal: true,
+          swipeHorizontal: false,
           nightMode: false,
           onError: (e) {},
           onRender: (_pages) {
@@ -150,24 +151,17 @@ class _BacaBukuState extends State<BacaBuku> {
     } else {
       if (exists) {
         //Replace with your loading UI
-        return Scaffold(
-          appBar: AppBar(
-            title: Text("Loading.."),
-          ),
-          body: Text(
-            "Loading..",
-            style: TextStyle(fontSize: 20),
-          ),
+        return Center(
+          child: CircularProgressIndicator(),
         );
       } else {
         //Replace Error UI
         return Scaffold(
-          appBar: AppBar(
-            title: Text("Loading.."),
-          ),
-          body: Text(
-            "PDF Not Available",
-            style: TextStyle(fontSize: 20),
+          body: Center(
+            child: Text(
+              "Data not Available",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
         );
       }
