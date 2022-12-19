@@ -64,14 +64,7 @@ Future<List<model.Invoice>> getRuanganPinjaman(BuildContext context) async {
       ),
     );
     if (response.data['data'] == null) {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Gagal load'),
-              content: Text('Ruangan kosong'),
-            );
-          });
+      print('Data null');
     } else {
       response.data['data'].forEach(
         (e) => ruangan.add(
