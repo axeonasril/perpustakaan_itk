@@ -7,7 +7,6 @@ import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/pages/baca_buku.dart';
 import 'package:flutter/gestures.dart';
 import 'package:perpustakaan_itk/widgets/buku_lainnya.dart';
-import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
 
 class DetailBuku extends StatefulWidget {
   final BookCover detailBuku;

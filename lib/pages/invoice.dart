@@ -224,9 +224,21 @@ class _InvoiceState extends State<Invoice> {
                                     height: 5,
                                   ),
                                   Text(
-                                    widget.invoice.waktuAwal.toString() +
+                                    widget.invoice.waktuAwal
+                                            .toString()
+                                            .split(':')[0] +
+                                        ':' +
+                                        widget.invoice.waktuAwal
+                                            .toString()
+                                            .split(':')[1] +
                                         ' - ' +
-                                        widget.invoice.waktuAkhir.toString(),
+                                        widget.invoice.waktuAkhir
+                                            .toString()
+                                            .split(':')[0] +
+                                        ':' +
+                                        widget.invoice.waktuAkhir
+                                            .toString()
+                                            .split(':')[1],
                                     style: TextStyle(
                                         color: Color(0xff222149),
                                         fontWeight: FontWeight.w500),
