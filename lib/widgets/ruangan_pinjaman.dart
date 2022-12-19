@@ -100,9 +100,13 @@ class _RuanganPinjamanState extends State<RuanganPinjaman> {
                                     Text(
                                       snapshot.data[index].status,
                                       style: TextStyle(
-                                          color: snapshot.data[index].status == 'Ditolak' ? Colors.red 
-                                          : Color(0xff45D476),
-                                          
+                                          color: snapshot.data[index].status ==
+                                                  'Menunggu'
+                                              ? Colors.orange
+                                              : snapshot.data[index].status ==
+                                                      'Ditolak'
+                                                  ? Colors.red
+                                                  : Color(0xff45D476),
                                           fontWeight: FontWeight.w500),
                                     ),
                                   ],
