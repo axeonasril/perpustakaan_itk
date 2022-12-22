@@ -19,26 +19,23 @@ class BookCover extends StatelessWidget {
         children: [
           Image.network(
             book.gambarDokumen,
-            height: 120,
+            height: 100,
             width: 100,
-            fit: BoxFit.cover,
+            fit: BoxFit.scaleDown,
           ),
           SizedBox(
-            height: 7,
+            height: 10,
           ),
           Text(
             book.judul,
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
           ),
           SizedBox(
-            height: 4,
+            height: 5,
           ),
           Text(
             book.namaPengarang,
-            style: TextStyle(
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-                color: Color(0xff696969)),
+            style: TextStyle(fontSize: 13, color: Color(0xff696969)),
           ),
         ],
       ),

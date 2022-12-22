@@ -21,8 +21,8 @@ class _BookingRuanganState extends State<BookingRuangan> {
   String akhirhour, akhirminute = '';
   String akhirtime = '00:00';
 
-  TimeOfDay awalSelectedTime = TimeOfDay(hour: 00, minute: 00);
-  TimeOfDay akhirSelectedTime = TimeOfDay(hour: 00, minute: 00);
+  TimeOfDay awalSelectedTime = const TimeOfDay(hour: 00, minute: 00);
+  TimeOfDay akhirSelectedTime = const TimeOfDay(hour: 00, minute: 00);
 
   bool cariRuangan = false;
 

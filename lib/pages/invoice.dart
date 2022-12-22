@@ -347,51 +347,6 @@ class _InvoiceState extends State<Invoice> {
               ],
             ),
           ),
-          // Button Data Pemohon
-          Positioned(
-            bottom: 50,
-            left: 0,
-            right: 0,
-            child: Column(
-              children: [
-                InkWell(
-                  onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (BuildContext context) {
-                    //       return Invoice();
-                    //     },
-                    //   ),
-                    // );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Color(0xff0047FF),
-                        ),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'LIHAT INVOICE',
-                          style: TextStyle(
-                              color: Color(0xff0047FF),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );

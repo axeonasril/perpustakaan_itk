@@ -287,7 +287,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                               return BacaBuku(
                                                 book: snapshot.data,
                                                 url: snapshot
-                                                    .data.fullDokumen['file']
+                                                    .data.fullDokumen
+                                                    ['file']
                                                     .toString(),
                                               );
                                             }));
