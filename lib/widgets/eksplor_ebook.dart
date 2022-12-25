@@ -53,32 +53,35 @@ class _EksplorEbookState extends State<EksplorEbook> {
                       ),
                     );
                   },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/buku2.png',
-                        height: 100,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        dataKategori[index].namaKategori,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 15),
-                      ),
-                      // Text(
-                      //   dataKategori[index]['jumlah'] + ' Buku',
-                      //   style: TextStyle(
-                      //       fontWeight: FontWeight.normal,
-                      //       fontSize: 12,
-                      //       color: Color(0xff696969)),
-                      // ),
-                    ],
+                  child: Card(
+                    elevation: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/buku2.png',
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          dataKategori[index].namaKategori,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 15),
+                        ),
+                        // Text(
+                        //   dataKategori[index]['jumlah'] + ' Buku',
+                        //   style: TextStyle(
+                        //       fontWeight: FontWeight.normal,
+                        //       fontSize: 12,
+                        //       color: Color(0xff696969)),
+                        // ),
+                      ],
+                    ),
                   ),
                 );
               },

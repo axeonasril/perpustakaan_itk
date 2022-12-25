@@ -179,8 +179,8 @@ void pinjamBuku(context, id) async {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Gagal load'),
-              content: Text('Kategori kosong'),
+              title: Text('Gagal Pinjam Buku'),
+              content: Text('Anda sudah melewati batas peminjaman'),
             );
           });
     } else {

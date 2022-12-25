@@ -17,6 +17,9 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   runApp(
     MaterialApp(
+      builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child),
       theme: ThemeData(primarySwatch: Colors.grey),
       debugShowCheckedModeBanner: false,
       home: FirstSplash(),

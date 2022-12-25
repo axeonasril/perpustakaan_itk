@@ -54,7 +54,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
         awaltime = formatDate(
             DateTime(
                 2019, 08, 1, awalSelectedTime.hour, awalSelectedTime.minute),
-            [hh, ':', nn]).toString();
+            [HH, ':', nn]).toString();
       });
   }
 
@@ -72,7 +72,7 @@ class _BookingRuanganState extends State<BookingRuangan> {
         akhirtime = formatDate(
             DateTime(
                 2019, 08, 1, akhirSelectedTime.hour, akhirSelectedTime.minute),
-            [hh, ':', nn]).toString();
+            [HH, ':', nn]).toString();
       });
   }
 

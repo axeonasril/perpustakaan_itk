@@ -15,7 +15,7 @@ class _BukuLainnyaState extends State<BukuLainnya> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 230,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

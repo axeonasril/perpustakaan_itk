@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:perpustakaan_itk/utils/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sweetalertv2/sweetalertv2.dart';
 
 void checkin(context) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -16,32 +17,23 @@ void checkin(context) async {
       ),
     );
     if (response.data['status'] == 'error') {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text(
-                response.data['status'],
-              ),
-              content: Text(
-                response.data['message'],
-              ),
-            );
-          });
+      SweetAlertV2.show(context,
+          title: 'Gagal',
+          subtitle: 'Anda sudah melakukan checkin',
+          style: SweetAlertV2Style.error, onPress: (bool isConfirm) {
+        Navigator.pop(context);
+        Navigator.pop(context);
+        return false;
+      });
     } else {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              response.data['status'],
-            ),
-            content: Text(
-              response.data['data']['message'],
-            ),
-          );
-        },
-      );
+      SweetAlertV2.show(context,
+          title: 'Berhasil',
+          subtitle: 'Anda berhasil melakukan checkin',
+          style: SweetAlertV2Style.success, onPress: (bool isConfirm) {
+        Navigator.pop(context);
+        Navigator.pop(context);
+        return false;
+      });
     }
   } catch (e) {
     print(e);

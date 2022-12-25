@@ -15,7 +15,7 @@ class _BukuTerbaruState extends State<BukuTerbaru> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 228,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

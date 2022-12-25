@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
                 );
               },
               child: Icon(
-                Icons.bookmark_outline,
+                Icons.favorite_outline,
                 color: Colors.white,
               )),
           SizedBox(

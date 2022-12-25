@@ -19,7 +19,7 @@ class _RekomendasiState extends State<Rekomendasi> {
     final Future<List<model.BookCover>> bookList = getBookRekomendasi(context);
     print(bookList);
     return Container(
-      height: 200,
+      height: 230,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

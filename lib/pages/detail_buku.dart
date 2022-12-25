@@ -287,8 +287,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                               return BacaBuku(
                                                 book: snapshot.data,
                                                 url: snapshot
-                                                    .data.fullDokumen
-                                                    ['file']
+                                                    .data.fullDokumen['file']
                                                     .toString(),
                                               );
                                             }));
@@ -343,8 +342,8 @@ class _DetailBukuState extends State<DetailBuku> {
                                                   BorderRadius.circular(10)),
                                           child: Icon(
                                             bookmarkAdded == true
-                                                ? Icons.bookmark
-                                                : Icons.bookmark_outline,
+                                                ? Icons.favorite
+                                                : Icons.favorite_outline,
                                             color: Colors.white,
                                           )),
                                     ),
