@@ -70,7 +70,7 @@ void addBookmark(BuildContext context, dokumenId) async {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Berhasil'),
-              content: Text(response.data['data']['message'].toString()),
+              content: Text('Berhasil Menambahkan Ke Favorit'),
             );
           });
     }
@@ -83,7 +83,7 @@ void removeBookmark(BuildContext context, id) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   try {
     Dio dio = Dio();
-     await dio.delete(
+    await dio.delete(
       urlApi + '/bookmark/' + id.toString(),
       options: Options(
         headers: {
@@ -97,7 +97,7 @@ void removeBookmark(BuildContext context, id) async {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Berhasil'),
-            content: Text('Bookmark berhasil dihapus'),
+            content: Text('Dokumen berhasil dihapus'),
           );
         });
   } catch (e) {

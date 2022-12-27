@@ -32,7 +32,7 @@ class _BookmarkState extends State<Bookmark> {
         elevation: 0,
         backgroundColor: Color(0xffFFFFFF),
         title: Text(
-          'BOOKMARK',
+          'FAVORIT SAYA',
           style: GoogleFonts.openSans(
             color: Color(0xff222149),
             fontSize: 20,
