@@ -65,14 +65,25 @@ void addBookmark(BuildContext context, dokumenId) async {
             );
           });
     } else {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Berhasil'),
-              content: Text('Berhasil Menambahkan Ke Favorit'),
-            );
-          });
+      if (response.data['data']['message'] == "Bookmark Berhasil Ditambahkan") {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Berhasil'),
+                content: Text('Berhasil Menambahkan ke Favorit'),
+              );
+            });
+      } else {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Berhasil'),
+                content: Text('Berhasil Menghapus dari Favorit'),
+              );
+            });
+      }
     }
   } catch (e) {
     print(e);
