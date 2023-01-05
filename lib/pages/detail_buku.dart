@@ -25,16 +25,8 @@ class _DetailBukuState extends State<DetailBuku> {
       isPinjamBuku = widget.detailBuku.isPinjam;
     });
   }
-
-  setBookmark() {
-    setState(() {
-      bookmarkAdded = widget.detailBuku.isBookmark;
-    });
-  }
-
   @override
   void initState() {
-    setBookmark();
     setisPinjamBuku();
     super.initState();
   }
@@ -66,6 +58,7 @@ class _DetailBukuState extends State<DetailBuku> {
               builder: (context, snapshot) {
                 if (snapshot.data != null) {
                   isPinjamBuku = snapshot.data.isPinjam;
+                  bookmarkAdded = snapshot.data.isBookmark;
                 }
                 return snapshot.data == null
                     ? Center(child: CircularProgressIndicator())
@@ -329,6 +322,7 @@ class _DetailBukuState extends State<DetailBuku> {
                                       onTap: () {
                                         addBookmark(
                                             context, widget.detailBuku.id);
+
                                         setState(() {
                                           bookmarkAdded = !bookmarkAdded;
                                         });

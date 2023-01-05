@@ -260,7 +260,12 @@ class _InvoiceState extends State<Invoice> {
                                   Text(
                                     widget.invoice.status ?? 'Pending',
                                     style: TextStyle(
-                                        color: Color(0xffE0AA1D),
+                                        color: widget.invoice.status ==
+                                                'Diterima'
+                                            ? Colors.green
+                                            : widget.invoice.status == 'Ditolak'
+                                                ? Colors.red
+                                                : Color(0xffE0AA1D),
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ],

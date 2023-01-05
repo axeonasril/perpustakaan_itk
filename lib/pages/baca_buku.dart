@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:perpustakaan_itk/core/models/book.dart';
-import 'package:perpustakaan_itk/pages/baca_buku_bab1.dart';
 
 class BacaBuku extends StatefulWidget {
   final Book book;

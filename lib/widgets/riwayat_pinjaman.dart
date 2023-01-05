@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/core/models/buku_pinjaman_model.dart';
 import 'package:perpustakaan_itk/pages/detail_buku.dart';
@@ -24,6 +23,7 @@ class _RiwayatPinjamanState extends State<RiwayatPinjaman> {
                   child: Text('Loading'),
                 )
               : ListView.builder(
+                
                   physics: BouncingScrollPhysics(),
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {

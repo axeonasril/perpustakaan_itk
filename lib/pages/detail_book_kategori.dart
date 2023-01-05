@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/book.dart';
-import 'package:perpustakaan_itk/core/models/book.dart';
 import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/pages/detail_buku.dart';
 

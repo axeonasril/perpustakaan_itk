@@ -4,7 +4,6 @@ import 'package:perpustakaan_itk/core/controller/book.dart';
 import 'package:perpustakaan_itk/core/models/book_cover.dart';
 import 'package:perpustakaan_itk/pages/detail_buku.dart';
 import 'package:perpustakaan_itk/widgets/eksplor_ebook.dart';
-import 'package:perpustakaan_itk/widgets/eksplor_kategori.dart';
 import 'package:perpustakaan_itk/widgets/eksplor_ruangan.dart';
 
 class Explore extends StatefulWidget {

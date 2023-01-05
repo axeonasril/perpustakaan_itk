@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/pages/booking_ruangan.dart';
 import 'package:perpustakaan_itk/pages/tab_decider.dart';
-import 'package:perpustakaan_itk/widgets/riwayat_pinjaman_ruangan.dart';
 import 'package:perpustakaan_itk/widgets/ruangan_pinjaman.dart';
 
 class RuanganSaya extends StatefulWidget {

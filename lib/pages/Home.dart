@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:perpustakaan_itk/core/controller/notifikasi_controller.dart';
-import 'package:perpustakaan_itk/core/models/notifikasi.dart';
 import 'package:perpustakaan_itk/pages/bookmark.dart';
 import 'package:perpustakaan_itk/pages/notification.dart';
 import 'package:perpustakaan_itk/widgets/buku_terbaru.dart';
